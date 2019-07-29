@@ -1,11 +1,18 @@
 choosePackage <- function(input, output, session) {
   
+  pkg_name <- reactive({
+    input$packagesInput
+  })
+  pkg_version <- reactive({
+    packageVersion(input$packagesInput)
+  })
+  
   output$packageName <- renderText({
-    paste("Package:", input$packagesInput)
+    paste("Package:", pkg_name())
   })
   
   output$packageVersion <- renderText({
-    paste("Version:", packageVersion(input$packagesInput))
+    paste("Version:", pkg_version())
   })
   
   output$concout <- renderText({
@@ -23,7 +30,10 @@ choosePackage <- function(input, output, session) {
       file.copy("reports/template/report.Rmd", tempReport, overwrite = TRUE)
       
       # Set up parameters to pass to Rmd document
-      params <- list(n = input$slider)
+      params <- list(pkg_name = pkg_name(),
+                     pkg_version = pkg_version(),
+                     pkg_conclusion = input$conc,
+                     n = input$slider)
       
       # Knit the document, passing in the `params` list, and eval it in a
       # child of the global environment (this isolates the code in the document

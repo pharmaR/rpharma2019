@@ -1,17 +1,18 @@
 ---
-title: "Dynamic report"
 output: html_document
 params:
+  pkg_name: NA
+  pkg_version: NA
+  pkg_conclusion: NA
   n: NA
 ---
 
-```{r}
-# The `params` object is available in the document.
-params$n
-```
+---
+title: `r paste("Package:", params$pkg_name)`
+---
 
-A plot of `params$n` random points.
+# Version: `r params$pkg_version`
 
-```{r}
-plot(rnorm(params$n), rnorm(params$n))
-```
+# Conclusion
+
+`r params$pkg_conclusion`
