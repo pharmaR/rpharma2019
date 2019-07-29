@@ -13,4 +13,6 @@ packages <- c("haven", "dplyr", "broom", "lme4", "RBesT", "foreach")
 
 # Modules
 source("modules/module-choose_packages.R")
+source("modules/module-choose_packages_ui.R")
+source("modules/module-choose_packages_server.R")
 
