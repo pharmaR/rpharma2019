@@ -8,8 +8,7 @@ choosePackageUI <- function(id) {
                          label = "Choose a Package",
                          choices = packages),
              downloadButton(ns("report"),
-                            "Generate Report"),
-             sliderInput(ns("slider"), "Slider", 1, 100, 50)
+                            "Generate Report")
              
       )
     ),

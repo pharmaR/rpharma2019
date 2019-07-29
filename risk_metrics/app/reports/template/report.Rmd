@@ -1,17 +1,18 @@
 ---
+title: "`r paste('Package:', params$pkg_name)`"
 output: html_document
 params:
   pkg_name: NA
   pkg_version: NA
   pkg_conclusion: NA
-  n: NA
 ---
 
----
-title: `r paste("Package:", params$pkg_name)`
----
 
 # Version: `r params$pkg_version`
+
+# Metrics
+
+METRICS WILL GO HERE
 
 # Conclusion
 
