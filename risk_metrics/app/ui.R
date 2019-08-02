@@ -29,6 +29,7 @@ shinyUI(
                     tabItem(tabName = "maintenance", showMetricsUI("maintenance")),
                     tabItem(tabName = "community", showMetricsUI("community")),
                     tabItem(tabName = "testing", showMetricsUI("testing"))
+                    
                   )
                 )
   )

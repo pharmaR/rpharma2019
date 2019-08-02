@@ -23,19 +23,28 @@ choosePackageUI <- function(id) {
       ),
       column(width = 9,
              tabBox(width=12,
-                 title = "Risk Assessment",
-                 tabPanel("Report Preview",
-                   h4(textOutput(ns("packageName"))),
-                   h4(textOutput(ns("packageVersion"))),
-                   textOutput(ns("concout"))
-                 ),
-                 tabPanel("Maintenance"
-                 ),
-                 tabPanel("Community Usage"
-                          
-                 ),
-                 tabPanel("Testing"
-                 )
+                    title = "Risk Assessment",
+                    tabPanel("Report Preview",
+                             h4(textOutput(ns("packageName"))),
+                             h4(textOutput(ns("packageVersion"))),
+                             textOutput(ns("concout"))
+                    ),
+                    tabPanel("Maintenance",
+                             fluidRow(
+                               
+                               infoyesnoUI(ns("vignette")),
+                               infoyesnoUI(ns("website")),
+                               infoyesnoUI(ns("news")),
+                               infoyesnoUI(ns("source_pub")),
+                               infoyesnoUI(ns("bugtrack"))
+                               
+                             )
+                    ),
+                    tabPanel("Community Usage"
+                             
+                    ),
+                    tabPanel("Testing"
+                    )
              )
       )
     )

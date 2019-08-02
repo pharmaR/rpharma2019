@@ -19,6 +19,16 @@ choosePackage <- function(input, output, session) {
     paste(input$conc)
   })
   
+  # Maintenance
+  callModule(infoyesno, "vignette", label = "Has vignette(s)", has = TRUE)
+  callModule(infoyesno, "website", label = "Has website", has = TRUE)
+  callModule(infoyesno, "news", label = "Has news feed", has = FALSE)
+  callModule(infoyesno, "source_pub", label = "Source code maintained publicly", has = TRUE)
+  callModule(infoyesno, "bugtrack", label = "Formal bug tracking", has = FALSE)
+  
+  
+  
+  # Report
   output$report <- downloadHandler(
     # For PDF output, change this to "report.pdf"
     filename = "report.html",

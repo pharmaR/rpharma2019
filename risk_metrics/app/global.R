@@ -20,4 +20,6 @@ source("modules/module-choose_packages_ui.R")
 source("modules/module-choose_packages_server.R")
 source("modules/module-metrics_ui.R")
 source("modules/module-metrics_server.R")
+source("modules/module-infoyesno_ui.R")
+source("modules/module-infoyesno_server.R")
 
