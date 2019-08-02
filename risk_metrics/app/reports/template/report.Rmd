@@ -4,6 +4,9 @@ output: html_document
 params:
   pkg_name: NA
   pkg_version: NA
+  pkg_maint: NA
+  pkg_community: NA
+  pkg_testing: NA
   pkg_conclusion: NA
 ---
 
@@ -12,7 +15,19 @@ params:
 
 # Metrics
 
-METRICS WILL GO HERE
+[METRICS WILL GO HERE]
+
+## Package Maintenance
+
+`r params$pkg_maint`
+
+## Community Usage
+
+`r params$pkg_community`
+
+## Testing
+
+`r params$pkg_testing`
 
 # Conclusion
 

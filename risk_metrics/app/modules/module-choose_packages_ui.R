@@ -25,9 +25,15 @@ choosePackageUI <- function(id) {
              tabBox(width=12,
                     title = "Risk Assessment",
                     tabPanel("Report Preview",
-                             h4(textOutput(ns("packageName"))),
-                             h4(textOutput(ns("packageVersion"))),
-                             textOutput(ns("concout"))
+                             h1(textOutput(ns("packageName"))),
+                             h2(textOutput(ns("packageVersion"))),
+                             h2("Overall Conclusion"),
+                             textOutput(ns("concout")),
+                             h2("Metrics"),
+                             h3("Package Maintenance"),
+                             h3("Community Usage"),
+                             h3("Testing")
+                             
                     ),
                     tabPanel("Maintenance",
                              fluidRow(
