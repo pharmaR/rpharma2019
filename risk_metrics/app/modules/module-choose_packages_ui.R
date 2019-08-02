@@ -40,10 +40,20 @@ choosePackageUI <- function(id) {
                                
                              )
                     ),
-                    tabPanel("Community Usage"
+                    tabPanel("Community Usage",
+                             fluidRow(
+                               
+                               infoyesnoUI(ns("cran"))
+                               
+                             )
                              
                     ),
-                    tabPanel("Testing"
+                    tabPanel("Testing",
+                             fluidRow(
+                               
+                               infoyesnoUI(ns("tests"))
+                               
+                             )
                     )
              )
       )

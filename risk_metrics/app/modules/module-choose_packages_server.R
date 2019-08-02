@@ -26,6 +26,12 @@ choosePackage <- function(input, output, session) {
   callModule(infoyesno, "source_pub", label = "Source code maintained publicly", has = TRUE)
   callModule(infoyesno, "bugtrack", label = "Formal bug tracking", has = FALSE)
   
+  # Community
+  callModule(infoyesno, "cran", label = "Package available on CRAN or Bioconductor", has = FALSE)
+  
+  # Testing
+  callModule(infoyesno, "tests", label = "Formal testing", has = FALSE)
+  
   
   
   # Report
