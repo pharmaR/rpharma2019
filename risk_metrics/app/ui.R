@@ -7,12 +7,14 @@ shinyUI(
                 skin = "blue",
                 dashboardSidebar(
                   sidebarMenu(
-                    menuItem("Packages",  tabName = "packages"),
+                    menuItem("Packages",  
+                             tabName = "packages"
+                    ),
                     menuItem("Assessment Criteria",  
                              tabName = "ass_crit",
                              menuSubItem("Maintenance",
                                          tabName = "maintenance"
-                                         ),
+                             ),
                              menuSubItem("Community",
                                          tabName = "community"
                              ),

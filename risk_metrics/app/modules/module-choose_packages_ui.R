@@ -22,11 +22,20 @@ choosePackageUI <- function(id) {
              )
       ),
       column(width = 9,
-             box(width=12,
-                 title = "Report Preview",
-                 h4(textOutput(ns("packageName"))),
-                 h4(textOutput(ns("packageVersion"))),
-                 textOutput(ns("concout"))
+             tabBox(width=12,
+                 title = "Risk Assessment",
+                 tabPanel("Report Preview",
+                   h4(textOutput(ns("packageName"))),
+                   h4(textOutput(ns("packageVersion"))),
+                   textOutput(ns("concout"))
+                 ),
+                 tabPanel("Maintenance"
+                 ),
+                 tabPanel("Community Usage"
+                          
+                 ),
+                 tabPanel("Testing"
+                 )
              )
       )
     )
