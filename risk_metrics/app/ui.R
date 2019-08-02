@@ -7,12 +7,12 @@ library(shinythemes)
 shinyUI(
   navbarPage(title = "Risk Assessment", theme = shinytheme("cerulean"),
     navbarMenu("Packages",
-      tabPanel("Samples", choosePackageUI("choosePackage1"))
+      tabPanel("Packages", choosePackageUI("choosePackage1"))
     ),
     navbarMenu("Assessment Criteria",
-      tabPanel("Maintenance", choosePackageUI("choosePackage2")),
-      tabPanel("Community", choosePackageUI("choosePackage3")),
-      tabPanel("Testing", choosePackageUI("choosePackage4"))
+      tabPanel("Maintenance", showMetricsUI("maintenance")),
+      tabPanel("Community", showMetricsUI("community")),
+      tabPanel("Testing", showMetricsUI("testing"))
     )
   )
 )

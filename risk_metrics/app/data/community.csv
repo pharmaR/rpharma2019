@@ -1,0 +1,6 @@
+Metric,Measure,Reason for Inclusion
+Maturity (package),Count (months),"The longer a package has been in existence, the more exposure it has had to community testing"
+Maturity (version),Count (months),"When measuring package maturity, it is also important to consider the version maturity.  The more recent a version, the less exposure it has had to community testing"
+Package available on CRAN or Bioconductor,Yes/no,"CRAN and Bioconductor are the two standard public repositories for R packages.  To publish a package on these repositories, a package maintainer must ensure that the package passes a series of technical checks including the 'R CMD check'.  Packages on GitHub and other popular public repositories are not required to meet these checks and pose a greater risk."
+Number of reverse dependencies,Count,A high number of reverse dependencies increases the indirect exposure of the package. If the package is on CRAN then changes to the package that affect these reverse dependencies will be identified and must be addressed accordingly.  Thus the reverse dependencies help reduce the likelihood of bugs/errors within a package.
+Number of downloads in past 12 months (all versions),Count,The more times a package has been downloaded the more extensive the user testing and the greater chance there is of someone finding a bug and logging it. 

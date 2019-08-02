@@ -1,0 +1,3 @@
+Metric,Measure,Reason for Inclusion
+Implements a standard unit-testing framework?,Yes/no,"The three standard R unit-testing frameworks are testthat, RUnit and svUnit.  It is good practice to adopt one of these frameworks in order to write unit tests.  A user may implement their own framework but this increases the risk of error."
+Code coverage,Percentage,"For packages that implement a test framework, it is possible to use the R package, covr, to work out the proportion of the source code covered by these tests.  Although there are an infinite number of ways of testing code, a 100% covr score would mean that every line of source code is at least called when running the tests."
