@@ -15,7 +15,7 @@ choosePackage <- function(input, output, session) {
     paste("Version:", pkg_version())
   })
   
-  output$concout <- renderText({
+  output$conc_main <- renderText({
     paste(input$conc)
   })
   
@@ -25,13 +25,21 @@ choosePackage <- function(input, output, session) {
   callModule(infoyesno, "news", label = "Has news feed", has = FALSE)
   callModule(infoyesno, "source_pub", label = "Source code maintained publicly", has = TRUE)
   callModule(infoyesno, "bugtrack", label = "Formal bug tracking", has = FALSE)
+  output$conc_maint <- renderText({
+    paste(input$conc_maint)
+  })
   
   # Community
   callModule(infoyesno, "cran", label = "Package available on CRAN or Bioconductor", has = FALSE)
+  output$conc_community <- renderText({
+    paste(input$conc_community)
+  })
   
   # Testing
   callModule(infoyesno, "tests", label = "Formal testing", has = FALSE)
-  
+  output$conc_testing <- renderText({
+    paste(input$conc_testing)
+  })
   
   
   # Report

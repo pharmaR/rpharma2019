@@ -28,11 +28,14 @@ choosePackageUI <- function(id) {
                              h1(textOutput(ns("packageName"))),
                              h2(textOutput(ns("packageVersion"))),
                              h2("Overall Conclusion"),
-                             textOutput(ns("concout")),
+                             textOutput(ns("conc_main")),
                              h2("Metrics"),
                              h3("Package Maintenance"),
+                             textOutput(ns("conc_maint")),
                              h3("Community Usage"),
-                             h3("Testing")
+                             textOutput(ns("conc_community")),
+                             h3("Testing"),
+                             textOutput(ns("conc_testing"))
                              
                     ),
                     tabPanel("Maintenance",
@@ -63,7 +66,7 @@ choosePackageUI <- function(id) {
                              fluidRow(
                                box(
                                  textAreaInput(
-                                   ns("conc_maint"), 
+                                   ns("conc_community"), 
                                    label = "Community Usage Notes",
                                    width = "100%",
                                    height = "200px",
@@ -78,7 +81,7 @@ choosePackageUI <- function(id) {
                              fluidRow(
                                box(
                                  textAreaInput(
-                                   ns("conc_maint"), 
+                                   ns("conc_testing"), 
                                    label = "Testing Notes",
                                    width = "100%",
                                    height = "200px",
