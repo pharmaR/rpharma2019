@@ -2,6 +2,8 @@
 # v0.1, 2019-07-17
 
 library(shiny)
+library(shinydashboard)
+library(shinythemes)
 library(DT)
 library(readr)
 library(dplyr)

@@ -1,9 +1,9 @@
 showMetricsUI <- function(id) {
   ns <- NS(id)
-  fluidPage(
-    column(12,
-      textOutput(ns("overview")),
-      dataTableOutput(ns("metrics"))
-    )
+    fluidRow(
+      box(width = 3,
+          textOutput(ns("overview"))),
+      box(width = 9,
+          dataTableOutput(ns("metrics")))
   )
 }

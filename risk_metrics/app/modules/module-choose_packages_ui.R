@@ -2,36 +2,32 @@ choosePackageUI <- function(id) {
   ns <- NS(id)
   fluidPage(
     fluidRow(
-      
-      column(3,
-             selectInput(ns("packagesInput"), 
-                         label = "Choose a Package",
-                         choices = packages),
-             downloadButton(ns("report"),
-                            "Generate Report")
-             
-      )
-    ),
-    fluidRow(
-      
-      br(),
-      
-      column(3,
-             h4(textOutput(ns("packageName"))),
-             h4(textOutput(ns("packageVersion"))),
-             textOutput(ns("concout"))
-      ),
-      br(),
-      column(6,
-             textAreaInput(
-               ns("conc"), 
-               # value = "ENTER PACKAGE CONCLUSION HERE",
-               label = "Create Overall Conclusion",
-               width = "100%",
-               height = "200px",
+      column(width = 3,
+             box(width = 12,
+                 selectInput(ns("packagesInput"), 
+                             label = "Choose a Package",
+                             choices = packages),
+                 downloadButton(ns("report"),
+                                "Generate Report")
+                 
+             ),
+             box(width = 12,
+                 textAreaInput(
+                   ns("conc"), 
+                   # value = "ENTER PACKAGE CONCLUSION HERE",
+                   label = "Create Overall Conclusion",
+                   width = "100%",
+                   height = "200px",
+                 )
              )
-             
-             
+      ),
+      column(width = 9,
+             box(width=12,
+                 title = "Report Preview",
+                 h4(textOutput(ns("packageName"))),
+                 h4(textOutput(ns("packageVersion"))),
+                 textOutput(ns("concout"))
+             )
       )
     )
   )
