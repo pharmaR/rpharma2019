@@ -37,22 +37,47 @@ choosePackageUI <- function(id) {
                                infoyesnoUI(ns("news")),
                                infoyesnoUI(ns("source_pub")),
                                infoyesnoUI(ns("bugtrack"))
-                               
+                             ),
+                             fluidRow(
+                               box(
+                                 textAreaInput(
+                                   ns("conc_maint"), 
+                                   label = "Maintenance Notes",
+                                   width = "100%",
+                                   height = "200px",
+                                 )
+                                 
+                               )
                              )
                     ),
                     tabPanel("Community Usage",
                              fluidRow(
-                               
                                infoyesnoUI(ns("cran"))
+                             ),
+                             fluidRow(
+                               box(
+                                 textAreaInput(
+                                   ns("conc_maint"), 
+                                   label = "Community Usage Notes",
+                                   width = "100%",
+                                   height = "200px",
+                                 )
+                                 
+                               )
                                
                              )
-                             
                     ),
                     tabPanel("Testing",
+                             fluidRow(infoyesnoUI(ns("tests"))),
                              fluidRow(
-                               
-                               infoyesnoUI(ns("tests"))
-                               
+                               box(
+                                 textAreaInput(
+                                   ns("conc_maint"), 
+                                   label = "Testing Notes",
+                                   width = "100%",
+                                   height = "200px",
+                                 )
+                               )
                              )
                     )
              )
