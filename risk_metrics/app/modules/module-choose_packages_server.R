@@ -20,23 +20,23 @@ choosePackage <- function(input, output, session) {
   })
   
   # Maintenance
-  callModule(infoyesno, "vignette", label = "Has vignette(s)", has = TRUE)
-  callModule(infoyesno, "website", label = "Has website", has = TRUE)
-  callModule(infoyesno, "news", label = "Has news feed", has = FALSE)
-  callModule(infoyesno, "source_pub", label = "Source code maintained publicly", has = TRUE)
-  callModule(infoyesno, "bugtrack", label = "Formal bug tracking", has = FALSE)
+  callModule(infoyesno, "vignette", label = "Has vignette(s)", has = has_vignette)
+  callModule(infoyesno, "website", label = "Has website", has = has_website)
+  callModule(infoyesno, "news", label = "Has news feed", has = has_news)
+  callModule(infoyesno, "source_pub", label = "Source code maintained publicly", has = has_source_pub)
+  callModule(infoyesno, "bugtrack", label = "Formal bug tracking", has = has_bugtrack)
   output$conc_maint <- renderText({
     paste(input$conc_maint)
   })
   
   # Community
-  callModule(infoyesno, "cran", label = "Package available on CRAN or Bioconductor", has = FALSE)
+  callModule(infoyesno, "cran", label = "Package available on CRAN or Bioconductor", has = has_cran)
   output$conc_community <- renderText({
     paste(input$conc_community)
   })
   
   # Testing
-  callModule(infoyesno, "tests", label = "Formal testing", has = FALSE)
+  callModule(infoyesno, "tests", label = "Formal testing", has = has_tests)
   output$conc_testing <- renderText({
     paste(input$conc_testing)
   })

@@ -23,3 +23,13 @@ source("modules/module-metrics_server.R")
 source("modules/module-infoyesno_ui.R")
 source("modules/module-infoyesno_server.R")
 
+# Temporary vars until linked to packages
+has_vignette <- TRUE
+has_website <- FALSE
+has_news <- FALSE
+has_source_pub <- TRUE
+has_bugtrack <- TRUE
+
+has_cran <- TRUE
+
+has_tests <- FALSE
