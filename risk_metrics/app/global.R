@@ -25,19 +25,7 @@ source("modules/module-infoyesno_ui.R")
 source("modules/module-infoyesno_server.R")
 
 # Temporary vars until linked to packages
-has_vignette <- TRUE
-has_website <- FALSE
-has_news <- FALSE
-has_source_pub <- TRUE
-has_bugtrack <- TRUE
-approved_license <- TRUE
-n_releases <- 3
-n_lines <- 1000
-n_author_pkg <- 5
-
-on_cran <- TRUE
-
-has_tests <- FALSE
+metrics <- read_csv("data/metrics.csv")
 
 
 #' Relative lines of code

@@ -7,6 +7,45 @@ choosePackage <- function(input, output, session) {
     packageVersion(input$packagesInput)
   })
   
+  pkg_info <- reactive({
+    metrics %>%
+      filter(package == pkg_name(),
+             version == pkg_version())
+  })
+  has_vignette <- reactive({
+    pull(pkg_info(), has_vignette)
+  })
+  has_website <- reactive({
+    pull(pkg_info(), has_website)
+  })
+  has_news <- reactive({
+    pull(pkg_info(), has_news)
+  })
+  has_source_pub <- reactive({
+    pull(pkg_info(), has_source_pub)
+  })
+  has_bugtrack <- reactive({
+    pull(pkg_info(), has_bugtrack)
+  })
+  approved_license <- reactive({
+    pull(pkg_info(), approved_license)
+  })
+  n_releases <- reactive({
+    pull(pkg_info(), n_releases)
+  })
+  n_lines <- reactive({
+    pull(pkg_info(), n_lines)
+  })
+  n_author_pkg <- reactive({
+    pull(pkg_info(), n_author_pkg)
+  })
+  on_cran <- reactive({
+    pull(pkg_info(), on_cran)
+  })
+  has_tests <- reactive({
+    pull(pkg_info(), has_tests)
+  })
+
   output$packageName <- renderText({
     paste("Package:", pkg_name())
   })
@@ -20,37 +59,37 @@ choosePackage <- function(input, output, session) {
   })
   
   # Maintenance
-  callModule(infoyesno, "vignette", label = "Has vignette(s)", has = has_vignette)
-  callModule(infoyesno, "website", label = "Has website", has = has_website)
-  callModule(infoyesno, "news", label = "Has news feed", has = has_news)
-  callModule(infoyesno, "source_pub", label = "Source code maintained publicly", has = has_source_pub)
-  callModule(infoyesno, "bugtrack", label = "Formal bug tracking", has = has_bugtrack)
-  callModule(infoyesno, "license", label = "Company-approved license", has = approved_license)
+  callModule(infoyesno, "vignette", label = "Has vignette(s)", has = has_vignette())
+  callModule(infoyesno, "website", label = "Has website", has = has_website())
+  callModule(infoyesno, "news", label = "Has news feed", has = has_news())
+  callModule(infoyesno, "source_pub", label = "Source code maintained publicly", has = has_source_pub())
+  callModule(infoyesno, "bugtrack", label = "Formal bug tracking", has = has_bugtrack())
+  callModule(infoyesno, "license", label = "Company-approved license", has = approved_license())
   output$conc_maint <- renderText({
     paste(input$conc_maint)
   })
   output$code_lines <- renderPlot({
-    code_vs_pop_plot(n_lines, input$packagesInput)
+    code_vs_pop_plot(n_lines(), input$packagesInput)
   })
   output$releases <- renderGauge({
-    gauge(n_releases, min = 0, max = 10, gaugeSectors(
+    gauge(n_releases(), min = 0, max = 10, gaugeSectors(
       success = c(3, 10), warning = c(1, 2), danger = c(0, 0)
     ))
   })
   output$author_pks <- renderGauge({
-    gauge(n_author_pkg, min = 0, max = 30, gaugeSectors(
+    gauge(n_author_pkg(), min = 0, max = 30, gaugeSectors(
       success = c(6, 30), warning = c(2, 5), danger = c(0, 1)
     ))
   })
   
   # Community
-  callModule(infoyesno, "cran", label = "Package available on CRAN or Bioconductor", has = on_cran)
+  callModule(infoyesno, "cran", label = "Package available on CRAN or Bioconductor", has = on_cran())
   output$conc_community <- renderText({
     paste(input$conc_community)
   })
   
   # Testing
-  callModule(infoyesno, "tests", label = "Formal testing", has = has_tests)
+  callModule(infoyesno, "tests", label = "Formal testing", has = has_tests())
   output$conc_testing <- renderText({
     paste(input$conc_testing)
   })
