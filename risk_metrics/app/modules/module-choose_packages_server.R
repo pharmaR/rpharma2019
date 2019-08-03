@@ -32,6 +32,11 @@ choosePackage <- function(input, output, session) {
   output$code_lines <- renderPlot({
     code_vs_pop_plot(n_lines, input$packagesInput)
   })
+  output$releases <- renderGauge({
+    gauge(n_releases, min = 0, max = 10, gaugeSectors(
+      success = c(3, 10), warning = c(1, 2), danger = c(0, 0)
+    ))
+  })
   output$author_pks <- renderGauge({
     gauge(n_author_pkg, min = 0, max = 30, gaugeSectors(
       success = c(6, 30), warning = c(2, 5), danger = c(0, 1)

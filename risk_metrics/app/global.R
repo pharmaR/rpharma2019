@@ -31,6 +31,7 @@ has_news <- FALSE
 has_source_pub <- TRUE
 has_bugtrack <- TRUE
 approved_license <- TRUE
+n_releases <- 3
 n_lines <- 1000
 n_author_pkg <- 5
 

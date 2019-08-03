@@ -2,7 +2,7 @@ choosePackageUI <- function(id) {
   ns <- NS(id)
   fluidPage(
     fluidRow(
-      column(width = 3,
+      column(width = 4,
              box(width = 12,
                  selectInput(ns("packagesInput"), 
                              label = "Choose a Package",
@@ -21,7 +21,7 @@ choosePackageUI <- function(id) {
                  )
              )
       ),
-      column(width = 9,
+      column(width = 8,
              tabBox(width=12,
                     title = "Risk Assessment",
                     tabPanel("Report Preview",
@@ -49,14 +49,21 @@ choosePackageUI <- function(id) {
                              ),
                              fluidRow(
                                box(
-                                 title = "Comparison of Number of lines vs R Packages on CRAN",
-                                 width = 6, 
-                                 plotOutput(ns("code_lines"), height = 200)
+                                 title = "Releases in past 18 Months",
+                                 width = 4, height = "200px",
+                                 gaugeOutput(ns("releases"))
                                ),
                                box(
                                  title = "Number of CRAN Packages by Maintainer",
-                                 width = 6, height = "200px",
+                                 width = 4, height = "200px",
                                  gaugeOutput(ns("author_pks"))
+                               )
+                             ),
+                             fluidRow(
+                               box(
+                                 title = "Comparison of Number of lines vs R Packages on CRAN",
+                                 width = 6, 
+                                 plotOutput(ns("code_lines"), height = 200)
                                )
                              ),
                              fluidRow(
