@@ -96,7 +96,14 @@ choosePackageUI <- function(id) {
                              )
                     ),
                     tabPanel("Testing",
-                             fluidRow(infoyesnoUI(ns("tests"))),
+                             fluidRow(
+                               infoyesnoUI(ns("tests")),
+                               box(
+                                 title = "Test Coverage",
+                                 width = 4, height = "200px",
+                                 gaugeOutput(ns("test_coverage"))
+                               )
+                             ),
                              fluidRow(
                                box(
                                  textAreaInput(

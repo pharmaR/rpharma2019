@@ -45,6 +45,9 @@ choosePackage <- function(input, output, session) {
   has_tests <- reactive({
     pull(pkg_info(), has_tests)
   })
+  test_coverage <- reactive({
+    pull(pkg_info(), test_coverage)
+  })
 
   output$packageName <- renderText({
     paste("Package:", pkg_name())
@@ -93,7 +96,11 @@ choosePackage <- function(input, output, session) {
   output$conc_testing <- renderText({
     paste(input$conc_testing)
   })
-  
+  output$test_coverage <- renderGauge({
+    gauge(test_coverage(), min = 0, max = 100, gaugeSectors(
+      success = c(70, 100), warning = c(40, 69), danger = c(0, 39)
+    ))
+  })
   
   # Report
   output$report <- downloadHandler(
