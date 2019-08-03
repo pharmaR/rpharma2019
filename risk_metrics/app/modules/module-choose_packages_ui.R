@@ -40,12 +40,24 @@ choosePackageUI <- function(id) {
                     ),
                     tabPanel("Maintenance",
                              fluidRow(
-                               
                                infoyesnoUI(ns("vignette")),
                                infoyesnoUI(ns("website")),
                                infoyesnoUI(ns("news")),
                                infoyesnoUI(ns("source_pub")),
-                               infoyesnoUI(ns("bugtrack"))
+                               infoyesnoUI(ns("bugtrack")),
+                               infoyesnoUI(ns("license"))
+                             ),
+                             fluidRow(
+                               box(
+                                 title = "Comparison of Number of lines vs R Packages on CRAN",
+                                 width = 6, 
+                                 plotOutput(ns("code_lines"), height = 200)
+                               ),
+                               box(
+                                 title = "Number of CRAN Packages by Maintainer",
+                                 width = 6, height = "200px",
+                                 gaugeOutput(ns("author_pks"))
+                               )
                              ),
                              fluidRow(
                                box(

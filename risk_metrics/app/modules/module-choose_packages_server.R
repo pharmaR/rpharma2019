@@ -25,12 +25,21 @@ choosePackage <- function(input, output, session) {
   callModule(infoyesno, "news", label = "Has news feed", has = has_news)
   callModule(infoyesno, "source_pub", label = "Source code maintained publicly", has = has_source_pub)
   callModule(infoyesno, "bugtrack", label = "Formal bug tracking", has = has_bugtrack)
+  callModule(infoyesno, "license", label = "Company-approved license", has = approved_license)
   output$conc_maint <- renderText({
     paste(input$conc_maint)
   })
+  output$code_lines <- renderPlot({
+    code_vs_pop_plot(n_lines, input$packagesInput)
+  })
+  output$author_pks <- renderGauge({
+    gauge(n_author_pkg, min = 0, max = 30, gaugeSectors(
+      success = c(6, 30), warning = c(2, 5), danger = c(0, 1)
+    ))
+  })
   
   # Community
-  callModule(infoyesno, "cran", label = "Package available on CRAN or Bioconductor", has = has_cran)
+  callModule(infoyesno, "cran", label = "Package available on CRAN or Bioconductor", has = on_cran)
   output$conc_community <- renderText({
     paste(input$conc_community)
   })
