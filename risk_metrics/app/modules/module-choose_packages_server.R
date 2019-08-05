@@ -61,6 +61,9 @@ choosePackage <- function(input, output, session) {
     paste(input$conc)
   })
   
+  # Overall
+  callModule(addComments, "conc")
+  
   # Maintenance
   callModule(infoyesno, "vignette", label = "Has vignette(s)", has = has_vignette)
   callModule(infoyesno, "website", label = "Has website", has = has_website)
@@ -101,6 +104,26 @@ choosePackage <- function(input, output, session) {
       success = c(70, 100), warning = c(40, 69), danger = c(0, 39)
     ))
   })
+  # UI for PAckage Maintenance
+  # TODO Make this depend on selected package
+  output$conc_maint <- renderUI({
+    ns <- session$ns
+    fluidRow(
+      box(
+        textAreaInput(
+          ns("maint_text_input"),
+          label = "Maintenance Notes",
+          width = "100%",
+          height = "200px",
+        )
+      )
+    )
+  })
+  output$maint_text_output <- renderText({
+    paste(input$maint_text_input)
+  })
+    
+  
   
   # Report
   output$report <- downloadHandler(

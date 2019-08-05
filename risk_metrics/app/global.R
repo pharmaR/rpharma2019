@@ -23,6 +23,8 @@ source("modules/module-metrics_ui.R")
 source("modules/module-metrics_server.R")
 source("modules/module-infoyesno_ui.R")
 source("modules/module-infoyesno_server.R")
+source("modules/module-add_comments_ui.R")
+source("modules/module-add_comments_server.R")
 
 # Temporary vars until linked to packages
 metrics <- read_csv("data/metrics.csv")

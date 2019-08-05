@@ -12,13 +12,14 @@ choosePackageUI <- function(id) {
                  
              ),
              box(width = 12,
-                 textAreaInput(
-                   ns("conc"), 
-                   # value = "ENTER PACKAGE CONCLUSION HERE",
-                   label = "Create Overall Conclusion",
-                   width = "100%",
-                   height = "200px",
-                 )
+                 # textAreaInput(
+                 #   ns("conc"), 
+                 #   # value = "ENTER PACKAGE CONCLUSION HERE",
+                 #   label = "Create Overall Conclusion",
+                 #   width = "100%",
+                 #   height = "200px",
+                 # )
+                 addCommentsUI(ns("conc"), pkgs = LETTERS[1:4])
              )
       ),
       column(width = 8,
@@ -31,7 +32,7 @@ choosePackageUI <- function(id) {
                              textOutput(ns("conc_main")),
                              h2("Metrics"),
                              h3("Package Maintenance"),
-                             textOutput(ns("conc_maint")),
+                             textOutput(ns("maint_text_output")),
                              h3("Community Usage"),
                              textOutput(ns("conc_community")),
                              h3("Testing"),
@@ -60,27 +61,19 @@ choosePackageUI <- function(id) {
                                )
                              ),
                              fluidRow(
+   
                                box(
                                  title = "Comparison of Number of lines vs R Packages on CRAN",
                                  width = 6, 
                                  plotOutput(ns("code_lines"), height = 200)
                                )
+
                              ),
-                             fluidRow(
-                               box(
-                                 textAreaInput(
-                                   ns("conc_maint"), 
-                                   label = "Maintenance Notes",
-                                   width = "100%",
-                                   height = "200px",
-                                 )
-                                 
-                               )
-                             )
+                             uiOutput(ns("conc_maint"))
                     ),
                     tabPanel("Community Usage",
                              fluidRow(
-                               infoyesnoUI(ns("cran"))
+                               tagList(infoyesnoUI(ns("cran")))
                              ),
                              fluidRow(
                                box(
