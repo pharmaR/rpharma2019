@@ -14,5 +14,3 @@ addComments <- function(input, output, session, pkg) {
     text_reactive[[pkg()]]
   })
 }
-
-shinyApp(ui = ui, server = server)
