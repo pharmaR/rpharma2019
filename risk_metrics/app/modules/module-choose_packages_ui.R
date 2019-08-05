@@ -12,14 +12,7 @@ choosePackageUI <- function(id) {
                  
              ),
              box(width = 12,
-                 # textAreaInput(
-                 #   ns("conc"), 
-                 #   # value = "ENTER PACKAGE CONCLUSION HERE",
-                 #   label = "Create Overall Conclusion",
-                 #   width = "100%",
-                 #   height = "200px",
-                 # )
-                 addCommentsUI(ns("conc"), pkgs = LETTERS[1:4])
+                 addCommentsUI(ns("conc"))
              )
       ),
       column(width = 8,
@@ -29,14 +22,14 @@ choosePackageUI <- function(id) {
                              h1(textOutput(ns("packageName"))),
                              h2(textOutput(ns("packageVersion"))),
                              h2("Overall Conclusion"),
-                             textOutput(ns("conc_main")),
+                             #textOutput(ns("conc_main")),
                              h2("Metrics"),
                              h3("Package Maintenance"),
-                             textOutput(ns("maint_text_output")),
+                             #textOutput(ns("maint_text_output")),
                              h3("Community Usage"),
-                             textOutput(ns("conc_community")),
-                             h3("Testing"),
-                             textOutput(ns("conc_testing"))
+                             #textOutput(ns("conc_community")),
+                             h3("Testing")
+                             #textOutput(ns("conc_testing"))
                              
                     ),
                     tabPanel("Maintenance",
@@ -61,15 +54,20 @@ choosePackageUI <- function(id) {
                                )
                              ),
                              fluidRow(
-   
+                               
                                box(
                                  title = "Comparison of Number of lines vs R Packages on CRAN",
                                  width = 6, 
                                  plotOutput(ns("code_lines"), height = 200)
                                )
-
+                               
                              ),
-                             uiOutput(ns("conc_maint"))
+                             fluidRow(
+                               box(
+                                 addCommentsUI(ns("conc_maint"))
+                               )   
+                             )
+                             
                     ),
                     tabPanel("Community Usage",
                              fluidRow(
@@ -77,13 +75,7 @@ choosePackageUI <- function(id) {
                              ),
                              fluidRow(
                                box(
-                                 textAreaInput(
-                                   ns("conc_community"), 
-                                   label = "Community Usage Notes",
-                                   width = "100%",
-                                   height = "200px",
-                                 )
-                                 
+                                 addCommentsUI(ns("conc_community"))
                                )
                                
                              )
@@ -99,12 +91,7 @@ choosePackageUI <- function(id) {
                              ),
                              fluidRow(
                                box(
-                                 textAreaInput(
-                                   ns("conc_testing"), 
-                                   label = "Testing Notes",
-                                   width = "100%",
-                                   height = "200px",
-                                 )
+                                 addCommentsUI(ns("conc_testing"))
                                )
                              )
                     )

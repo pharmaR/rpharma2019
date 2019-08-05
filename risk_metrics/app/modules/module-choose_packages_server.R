@@ -57,12 +57,13 @@ choosePackage <- function(input, output, session) {
     paste("Version:", pkg_version())
   })
   
-  output$conc_main <- renderText({
-    paste(input$conc)
-  })
-  
+  # output$conc_main <- renderText({
+  #   paste(input$conc)
+  # })
+
   # Overall
-  callModule(addComments, "conc")
+  # User Input
+  callModule(addComments, "conc", pkg = pkg_name)
   
   # Maintenance
   callModule(infoyesno, "vignette", label = "Has vignette(s)", has = has_vignette)
@@ -71,9 +72,7 @@ choosePackage <- function(input, output, session) {
   callModule(infoyesno, "source_pub", label = "Source code maintained publicly", has = has_source_pub)
   callModule(infoyesno, "bugtrack", label = "Formal bug tracking", has = has_bugtrack)
   callModule(infoyesno, "license", label = "Company-approved license", has = approved_license)
-  output$conc_maint <- renderText({
-    paste(input$conc_maint)
-  })
+
   output$code_lines <- renderPlot({
     code_vs_pop_plot(n_lines(), input$packagesInput)
   })
@@ -87,43 +86,25 @@ choosePackage <- function(input, output, session) {
       success = c(6, 30), warning = c(2, 5), danger = c(0, 1)
     ))
   })
+  # User input
+  callModule(addComments, "conc_maint", pkg = pkg_name)
   
   # Community
   callModule(infoyesno, "cran", label = "Package available on CRAN or Bioconductor", has = on_cran)
-  output$conc_community <- renderText({
-    paste(input$conc_community)
-  })
+  # User input
+  callModule(addComments, "conc_community", pkg = pkg_name)
   
   # Testing
   callModule(infoyesno, "tests", label = "Formal testing", has = has_tests)
-  output$conc_testing <- renderText({
-    paste(input$conc_testing)
-  })
   output$test_coverage <- renderGauge({
     gauge(test_coverage(), min = 0, max = 100, gaugeSectors(
       success = c(70, 100), warning = c(40, 69), danger = c(0, 39)
     ))
   })
-  # UI for PAckage Maintenance
-  # TODO Make this depend on selected package
-  output$conc_maint <- renderUI({
-    ns <- session$ns
-    fluidRow(
-      box(
-        textAreaInput(
-          ns("maint_text_input"),
-          label = "Maintenance Notes",
-          width = "100%",
-          height = "200px",
-        )
-      )
-    )
-  })
-  output$maint_text_output <- renderText({
-    paste(input$maint_text_input)
-  })
-    
+  # User input
+  callModule(addComments, "conc_testing", pkg = pkg_name)
   
+
   
   # Report
   output$report <- downloadHandler(
