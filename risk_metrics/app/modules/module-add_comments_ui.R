@@ -1,11 +1,8 @@
 
-addCommentsUI <- function(id, pkgs){
+addCommentsUI <- function(id){
   ns <- NS(id)
   tagList(
     # Inputs
-    selectInput(ns("pkg"), "Package",
-                choices = pkgs), #LETTERS[1:3]),
-    
     textAreaInput(ns("user_text"), 
                   label = "Conclusion", 
                   placeholder = "Please enter some text.",
