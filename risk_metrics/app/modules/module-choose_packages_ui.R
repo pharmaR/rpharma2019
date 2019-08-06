@@ -21,6 +21,7 @@ choosePackageUI <- function(id) {
                     tabPanel("Report Preview",
                              h1(textOutput(ns("packageName"))),
                              h2(textOutput(ns("packageVersion"))),
+                             tableOutput(ns("desc_info")),
                              h2("Overall Conclusion"),
                              textOutput(ns("conc_text")),
                              h2("Metrics"),

@@ -7,6 +7,17 @@ choosePackage <- function(input, output, session) {
     packageVersion(input$packagesInput)
   })
   
+  # text output
+  output$text <- renderText({
+    text_reactive[[pkg()]]
+  })
+  
+  # Extract DESCRIPTION INFO for overview
+  desc_info <- reactive({
+    dcfs[[pkg_name()]]
+  })
+  output$desc_info <- renderTable(desc_info())
+  
   pkg_info <- reactive({
     metrics %>%
       filter(package == pkg_name(),
