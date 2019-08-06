@@ -25,11 +25,11 @@ choosePackageUI <- function(id) {
                              textOutput(ns("conc_text")),
                              h2("Metrics"),
                              h3("Package Maintenance"),
-                             #textOutput(ns("maint_text_output")),
+                             textOutput(ns("conc_maint_text")),
                              h3("Community Usage"),
-                             #textOutput(ns("conc_community")),
-                             h3("Testing")
-                             #textOutput(ns("conc_testing"))
+                             textOutput(ns("conc_community_text")),
+                             h3("Testing"),
+                             textOutput(ns("conc_testing_text"))
                              
                     ),
                     tabPanel("Maintenance",

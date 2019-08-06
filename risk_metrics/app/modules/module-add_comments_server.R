@@ -15,7 +15,7 @@ addComments <- function(input, output, session, pkg) {
   })
   
   return(
-    text_reactive
+    reactive(text_reactive)
   )
   
 }
