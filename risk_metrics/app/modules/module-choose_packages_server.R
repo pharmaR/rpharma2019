@@ -120,7 +120,10 @@ choosePackage <- function(input, output, session) {
       # Set up parameters to pass to Rmd document
       params <- list(pkg_name = pkg_name(),
                      pkg_version = pkg_version(),
-                     pkg_conclusion = input$conc)
+                     pkg_conclusion = conc_text(),
+                     pkg_maint = conc_maint_text(),
+                     pkg_community = conc_community_text(),
+                     pkg_testing = conc_testing_text())
       
       # Knit the document, passing in the `params` list, and eval it in a
       # child of the global environment (this isolates the code in the document
