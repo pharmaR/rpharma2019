@@ -57,13 +57,10 @@ choosePackage <- function(input, output, session) {
     paste("Version:", pkg_version())
   })
   
-  # output$conc_main <- renderText({
-  #   paste(input$conc)
-  # })
-
   # Overall
   # User Input
-  callModule(addComments, "conc", pkg = pkg_name)
+  conc_text <- callModule(addComments, "conc", pkg = pkg_name)
+  # output$conc_text <- renderText(conc_text[[pkg_name]])
   
   # Maintenance
   callModule(infoyesno, "vignette", label = "Has vignette(s)", has = has_vignette)

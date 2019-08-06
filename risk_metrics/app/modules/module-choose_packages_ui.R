@@ -22,7 +22,7 @@ choosePackageUI <- function(id) {
                              h1(textOutput(ns("packageName"))),
                              h2(textOutput(ns("packageVersion"))),
                              h2("Overall Conclusion"),
-                             #textOutput(ns("conc_main")),
+                             textOutput(ns("conc_text")),
                              h2("Metrics"),
                              h3("Package Maintenance"),
                              #textOutput(ns("maint_text_output")),
@@ -62,23 +62,27 @@ choosePackageUI <- function(id) {
                                )
                                
                              ),
-                             fluidRow(
-                               box(
+                             br(),
+                             # fluidRow(
+                             #   box(
+                             #     width = 12,
                                  addCommentsUI(ns("conc_maint"))
-                               )   
-                             )
+                             #   )   
+                             # )
                              
                     ),
                     tabPanel("Community Usage",
                              fluidRow(
                                tagList(infoyesnoUI(ns("cran")))
                              ),
-                             fluidRow(
-                               box(
+                             br(),
+                             # fluidRow(
+                               # box(
+                                 # width = 12,
                                  addCommentsUI(ns("conc_community"))
-                               )
+                               # )
                                
-                             )
+                             # )
                     ),
                     tabPanel("Testing",
                              fluidRow(
@@ -89,11 +93,13 @@ choosePackageUI <- function(id) {
                                  gaugeOutput(ns("test_coverage"))
                                )
                              ),
-                             fluidRow(
-                               box(
+                             br(),
+                             # fluidRow(
+                               # box(
+                                 # width = 12,
                                  addCommentsUI(ns("conc_testing"))
-                               )
-                             )
+                               # )
+                             # )
                     )
              )
       )

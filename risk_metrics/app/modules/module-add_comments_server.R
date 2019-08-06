@@ -13,4 +13,9 @@ addComments <- function(input, output, session, pkg) {
   output$text <- renderText({
     text_reactive[[pkg()]]
   })
+  
+  return(
+    text_reactive
+  )
+  
 }
