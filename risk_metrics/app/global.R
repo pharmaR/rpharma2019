@@ -12,33 +12,12 @@ library(tidyr)
 library(stringr)
 library(ggplot2); theme_set(theme_bw(base_size = 12))
 
-#' Process DCF files
-#' 
-#' Process DCF files to extract useful information for display purposes
-#' @param pkg Name of an installed R package
-process_dcf <- function(pkg){
-  
-  # Define vars of interest
-  keep_vars <- c("Title", "Description", "License", "URL", 
-                 "Author", "Maintainer", "Date/Publication")
-  keep_var_mat <- matrix(nrow=0, ncol = length(keep_vars))
-  colnames(keep_var_mat) <- keep_vars
-  keep_var_tib <- as_tibble(keep_var_mat)
-  
-  # Read DCF and combine
-  dcf <- read.dcf(file = system.file("DESCRIPTION", package = pkg))
-  dcf_tib <- as_tibble(dcf) 
-  keep_var_tib %>%
-    bind_rows(dcf_tib) %>%
-    select(!!keep_vars) %>%
-    gather(key = Parameter, value = Value)
-}
 
 
 # Packages to choose from
 #TODO make a CSV / DB
 packages <- c("haven", "dplyr", "broom", "lme4", "RBesT", "foreach")
-dcfs <- purrr::map(packages, process_dcf)
+dcfs <- purrr::map(packages, ~ read_csv(file.path("data", paste0(., ".csv"))))
 names(dcfs) <- packages
 
 # Modules
