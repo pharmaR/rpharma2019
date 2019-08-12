@@ -1,23 +1,23 @@
 decision <- function(input, output, session, pkg) {
   
+  # Respond to user choice
   observeEvent(input$choice,ignoreNULL = FALSE , ignoreInit = FALSE,
                {
                  package_decision[[pkg()]] <- input$choice
                })
   
-                 # package_decision[[pkg()]] <- input$choice
-               
+  # Refresh input text when package changes
+  observeEvent(pkg(),
+               {
+                 updateMaterialSwitch(
+                   session, 
+                   "choice", 
+                   value= ifelse(is.null(package_decision[[pkg()]]), FALSE, package_decision[[pkg()]]))
+               })
   
-  # text output
-  # package_decision[[pkg()]] <- reactive({
-  #   input$choice
-  # })
-  
+
   package_decision <- reactiveValues()
 
-  # return(
-  #   reactive(package_decision)
-  # )
   output$packageDecision <- renderText({
     package_decision[[pkg()]]
   })

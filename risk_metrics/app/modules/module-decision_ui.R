@@ -3,7 +3,9 @@ decisionUI <- function(id){
   fluidRow(
     # Inputs
     column(width=6,
-           materialSwitch(inputId = ns("choice"), value = FALSE),
+           materialSwitch(inputId = ns("choice"), 
+                          label = "Accept?", 
+                          value = FALSE),
            textOutput(ns("packageDecision"))
     )
   )

@@ -164,14 +164,6 @@ choosePackage <- function(input, output, session) {
   conc_testing_text <- callModule(addComments, "conc_testing", pkg = pkg_name, heading = "Testing Summary")
   output$conc_testing_text <- renderText(conc_testing_text()[[pkg_name()]])
   
-  # Decsion
-  # accept <- reactive({
-  #   input$decision
-  # })
-  # output$decision <- renderText({
-  #   "Reject"
-  # })
-  
   # Report
   output$report <- downloadHandler(
     # For PDF output, change this to "report.pdf"
