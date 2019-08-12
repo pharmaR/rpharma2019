@@ -19,7 +19,7 @@ decision <- function(input, output, session, pkg) {
   package_decision <- reactiveValues()
 
   output$packageDecision <- renderText({
-    package_decision[[pkg()]]
+    ifelse(package_decision[[pkg()]], "Accept", "Reject")
   })
   
 }
