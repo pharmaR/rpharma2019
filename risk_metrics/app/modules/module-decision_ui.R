@@ -5,7 +5,7 @@ decisionUI <- function(id){
     tagList(materialSwitch(inputId = ns("choice"), 
                            label = "Decision: ", 
                            value = FALSE),
-            textOutput(ns("packageDecision"))
+            textOutput(ns("decision_out"))
     )
 
 }

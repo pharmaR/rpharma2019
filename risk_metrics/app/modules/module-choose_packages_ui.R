@@ -7,12 +7,13 @@ choosePackageUI <- function(id) {
                  selectInput(ns("packagesInput"), 
                              label = "Choose a Package",
                              choices = packages),
+                 decisionUI(ns("accept_or_reject")),
+                 box(width=12,
+                     addCommentsUI(ns("conc"))
+                 ),
+                 br(),
                  downloadButton(ns("report"),
                                 "Generate Report")
-                 
-             ),
-             box(width = 12,
-                 addCommentsUI(ns("conc"))
              )
       ),
       column(width = 8,
@@ -21,7 +22,7 @@ choosePackageUI <- function(id) {
                     tabPanel("Report Preview",
                              h1(textOutput(ns("packageName"))),
                              h2(textOutput(ns("packageVersion"))),
-                             h2(decisionUI(ns("accept_or_reject"))),
+                             h2(textOutput(ns("decision_out"))),
                              tableOutput(ns("desc_info")),
                              h2("Overall Conclusion"),
                              textOutput(ns("conc_text")),

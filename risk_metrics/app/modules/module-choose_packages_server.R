@@ -12,6 +12,7 @@ choosePackage <- function(input, output, session) {
     text_reactive[[pkg()]]
   })
   
+
   # Extract DESCRIPTION info for overview
   desc_info <- reactive({
     dcfs[[pkg_name()]]
@@ -118,9 +119,11 @@ choosePackage <- function(input, output, session) {
   conc_text <- callModule(addComments, "conc", pkg = pkg_name, heading = "Package Conclusion")
   output$conc_text <- renderText(conc_text()[[pkg_name()]])
   
-  callModule(decision, "accept_or_reject", pkg = pkg_name)
-  #decide <- 
-  #output$packageDecision <- renderText(decide()[[pkg_name()]])
+  pkg_dec <- callModule(decision, "accept_or_reject", pkg = pkg_name)
+  output$decision_out <- renderText({
+    ifelse(pkg_dec()[[pkg_name()]], "Decision: Accept", "Decision: Reject")
+  })
+  
   
   # Maintenance
   callModule(infoyesno, "vignette", label = "Has vignette(s)", has = has_vignette)
