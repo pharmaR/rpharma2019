@@ -8,24 +8,80 @@ params:
   pkg_community: NA
   pkg_testing: NA
   pkg_conclusion: NA
+  accept: FALSE
 ---
 
 
-# Version: `r params$pkg_version`
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
 
-[ADD PACKAGE TYPE - eg stats, data manipulation etc as per white paper]
+## Version: `r params$pkg_version`
+
+## Decision: `r ifelse(params$accept, "Accept", "Reject")`
+
+# Conclusion
+
+`r params$pkg_conclusion`
 
 # Details
 
+```{r eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+
+# Temporary vars until linked to packages
+metrics <- read_csv("data/metrics.csv")
+
+# Display
+metrics_display <- metrics %>%
+   mutate_if("is.logical", ifelse, "Yes", "No") %>%
+   group_by(package, version) %>%
+   gather(-package, -version, key = param, value = Metric)
+# Labels
+metric_labels <- read_csv("data/metric_labels.csv") %>%
+   full_join(metrics_display, by = "param")
+```
+
 ## Package Maintenance
+
+```{r}
+metric_labels %>%
+      dplyr::filter(category == "maintenance", 
+                    package == params$pkg_name,
+                    version == params$pkg_version) %>%
+      select(Parameter, Metric) %>%
+  knitr::kable()
+```
 
 `r params$pkg_maint`
 
+
+
 ## Community Usage
+
+```{r}
+metric_labels %>%
+      dplyr::filter(category == "community", 
+                    package == params$pkg_name,
+                    version == params$pkg_version) %>%
+      select(Parameter, Metric) %>%
+  knitr::kable()
+```
 
 `r params$pkg_community`
 
+
+
 ## Testing
+
+```{r}
+metric_labels %>%
+      dplyr::filter(category == "testing", 
+                    package == params$pkg_name,
+                    version == params$pkg_version) %>%
+      select(Parameter, Metric) %>%
+  knitr::kable()
+```
 
 `r params$pkg_testing`
 
