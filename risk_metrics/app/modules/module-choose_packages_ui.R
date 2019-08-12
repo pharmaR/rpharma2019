@@ -24,7 +24,7 @@ choosePackageUI <- function(id) {
                              tableOutput(ns("desc_info")),
                              h2("Overall Conclusion"),
                              textOutput(ns("conc_text")),
-                             h2("Metrics"),
+                             h2("Details"),
                              h3("Package Maintenance"),
                              textOutput(ns("conc_maint_text")),
                              h3("Community Usage"),

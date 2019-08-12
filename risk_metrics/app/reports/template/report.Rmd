@@ -15,9 +15,7 @@ params:
 
 [ADD PACKAGE TYPE - eg stats, data manipulation etc as per white paper]
 
-# Metrics
-
-[METRICS WILL GO HERE]
+# Details
 
 ## Package Maintenance
 
