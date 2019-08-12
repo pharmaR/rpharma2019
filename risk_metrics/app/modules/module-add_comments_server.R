@@ -1,4 +1,4 @@
-addComments <- function(input, output, session, pkg) {
+addComments <- function(input, output, session, pkg, heading) {
   
   # Only update when user says to
   observeEvent(input$submit,
@@ -12,6 +12,10 @@ addComments <- function(input, output, session, pkg) {
   # text output
   output$text <- renderText({
     text_reactive[[pkg()]]
+  })
+  
+  output$heading <- renderText({
+    heading
   })
   
   return(

@@ -70,7 +70,7 @@ choosePackage <- function(input, output, session) {
   
   # Overall
   # User Input
-  conc_text <- callModule(addComments, "conc", pkg = pkg_name)
+  conc_text <- callModule(addComments, "conc", pkg = pkg_name, heading = "Package Conclusion")
   output$conc_text <- renderText(conc_text()[[pkg_name()]])
   
   # Maintenance
@@ -95,13 +95,13 @@ choosePackage <- function(input, output, session) {
     ))
   })
   # User input
-  conc_maint_text <- callModule(addComments, "conc_maint", pkg = pkg_name)
+  conc_maint_text <- callModule(addComments, "conc_maint", pkg = pkg_name, heading = "Maintenance Summary")
   output$conc_maint_text <- renderText(conc_maint_text()[[pkg_name()]])
   
   # Community
   callModule(infoyesno, "cran", label = "Package available on CRAN or Bioconductor", has = on_cran)
   # User input
-  conc_community_text <- callModule(addComments, "conc_community", pkg = pkg_name)
+  conc_community_text <- callModule(addComments, "conc_community", pkg = pkg_name, heading = "Community Summary")
   output$conc_community_text <- renderText(conc_community_text()[[pkg_name()]])
   
   # Testing
@@ -112,7 +112,7 @@ choosePackage <- function(input, output, session) {
     ))
   })
   # User input
-  conc_testing_text <- callModule(addComments, "conc_testing", pkg = pkg_name)
+  conc_testing_text <- callModule(addComments, "conc_testing", pkg = pkg_name, heading = "Testing Summary")
   output$conc_testing_text <- renderText(conc_testing_text()[[pkg_name()]])
   
 
