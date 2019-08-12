@@ -30,9 +30,20 @@ source("modules/module-infoyesno_ui.R")
 source("modules/module-infoyesno_server.R")
 source("modules/module-add_comments_ui.R")
 source("modules/module-add_comments_server.R")
+# source("modules/module-show_metrics_table_server.R")
+# source("modules/module-show_metrics_table_ui.R")
 
 # Temporary vars until linked to packages
 metrics <- read_csv("data/metrics.csv")
+
+# Display
+metrics_display <- metrics %>%
+   mutate_if("is.logical", ifelse, "Yes", "No") %>%
+   group_by(package, version) %>%
+   gather(-package, -version, key = param, value = Metric)
+# Labels
+metric_labels <- read_csv("data/metric_labels.csv") %>%
+   full_join(metrics_display, by = "param")
 
 
 #' Relative lines of code

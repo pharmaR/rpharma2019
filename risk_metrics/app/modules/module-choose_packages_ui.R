@@ -26,10 +26,13 @@ choosePackageUI <- function(id) {
                              textOutput(ns("conc_text")),
                              h2("Details"),
                              h3("Package Maintenance"),
+                             tableOutput(ns("maint_table_out")),
                              textOutput(ns("conc_maint_text")),
                              h3("Community Usage"),
+                             tableOutput(ns("comm_table_out")),
                              textOutput(ns("conc_community_text")),
                              h3("Testing"),
+                             tableOutput(ns("test_table_out")),
                              textOutput(ns("conc_testing_text"))
                              
                     ),

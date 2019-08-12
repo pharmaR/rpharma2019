@@ -12,17 +12,28 @@ choosePackage <- function(input, output, session) {
     text_reactive[[pkg()]]
   })
   
-  # Extract DESCRIPTION INFO for overview
+  # Extract DESCRIPTION info for overview
   desc_info <- reactive({
     dcfs[[pkg_name()]]
   })
   output$desc_info <- renderTable(desc_info())
   
+  # Package info
   pkg_info <- reactive({
     metrics %>%
       filter(package == pkg_name(),
              version == pkg_version())
   })
+  output$packageName <- renderText({
+    paste("Package:", pkg_name())
+  })
+  
+  output$packageVersion <- renderText({
+    paste("Version:", pkg_version())
+  })
+  
+  
+  # Maintenance
   has_vignette <- reactive({
     pull(pkg_info(), has_vignette)
   })
@@ -50,23 +61,57 @@ choosePackage <- function(input, output, session) {
   n_author_pkg <- reactive({
     pull(pkg_info(), n_author_pkg)
   })
+  
+  # Maintenance report display
+  maint_table <- reactive({
+    metric_labels %>%
+      dplyr::filter(category == "maintenance", 
+                    package == pkg_name(),
+                    version == pkg_version()) %>%
+      select(Parameter, Metric)
+  })
+  output$maint_table_out <- renderTable({
+    maint_table() 
+  })
+  
+  # Community
   on_cran <- reactive({
     pull(pkg_info(), on_cran)
   })
+  #TODO Add others
+  # Community report display
+  comm_table <- reactive({
+    metric_labels %>%
+      dplyr::filter(category == "community", 
+                    package == pkg_name(),
+                    version == pkg_version()) %>%
+      select(Parameter, Metric)
+  })
+  output$comm_table_out <- renderTable({
+    comm_table() 
+  })
+  
+  # Testing
   has_tests <- reactive({
     pull(pkg_info(), has_tests)
   })
   test_coverage <- reactive({
     pull(pkg_info(), test_coverage)
   })
-
-  output$packageName <- renderText({
-    paste("Package:", pkg_name())
+  
+  # Test report display
+  test_table <- reactive({
+    metric_labels %>%
+      dplyr::filter(category == "testing", 
+                    package == pkg_name(),
+                    version == pkg_version()) %>%
+      select(Parameter, Metric)
+  })
+  output$test_table_out <- renderTable({
+    test_table() 
   })
   
-  output$packageVersion <- renderText({
-    paste("Version:", pkg_version())
-  })
+    
   
   # Overall
   # User Input
