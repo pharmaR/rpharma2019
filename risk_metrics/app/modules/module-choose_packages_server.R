@@ -118,6 +118,10 @@ choosePackage <- function(input, output, session) {
   conc_text <- callModule(addComments, "conc", pkg = pkg_name, heading = "Package Conclusion")
   output$conc_text <- renderText(conc_text()[[pkg_name()]])
   
+  callModule(decision, "accept_or_reject", pkg = pkg_name)
+  #decide <- 
+  #output$packageDecision <- renderText(decide()[[pkg_name()]])
+  
   # Maintenance
   callModule(infoyesno, "vignette", label = "Has vignette(s)", has = has_vignette)
   callModule(infoyesno, "website", label = "Has website", has = has_website)
@@ -160,7 +164,13 @@ choosePackage <- function(input, output, session) {
   conc_testing_text <- callModule(addComments, "conc_testing", pkg = pkg_name, heading = "Testing Summary")
   output$conc_testing_text <- renderText(conc_testing_text()[[pkg_name()]])
   
-
+  # Decsion
+  # accept <- reactive({
+  #   input$decision
+  # })
+  # output$decision <- renderText({
+  #   "Reject"
+  # })
   
   # Report
   output$report <- downloadHandler(
@@ -179,7 +189,8 @@ choosePackage <- function(input, output, session) {
                      pkg_conclusion = conc_text(),
                      pkg_maint = conc_maint_text(),
                      pkg_community = conc_community_text(),
-                     pkg_testing = conc_testing_text())
+                     pkg_testing = conc_testing_text(),
+                     pkg_accept = "Reject")
       
       # Knit the document, passing in the `params` list, and eval it in a
       # child of the global environment (this isolates the code in the document
