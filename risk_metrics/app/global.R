@@ -18,6 +18,8 @@ library(ggplot2); theme_set(theme_bw(base_size = 12))
 # Packages to choose from
 #TODO make a CSV / DB
 packages <- c("haven", "dplyr", "broom", "lme4", "RBesT", "foreach")
+
+# DESCRIPTIONs
 dcfs <- purrr::map(packages, ~ read_csv(file.path("data", paste0(., ".csv"))))
 names(dcfs) <- packages
 
