@@ -22,21 +22,35 @@ Open a session in R 3.5.2 and R 3.4.4
 
 2. What is the result of `options("repos")` in each session?
 
-3. Where is the repo option set? 
+3. Where is the repo option set? Hint:
+
+```
+cat(readLines(con = paste0(R.home(), "/etc/Rprofile.site")))
+```
 
 
 ## Exercise 3
 
-Open the renv-test project:
+Create a new project from based off of the `renv-test` directory; "Project" -> "New Project" -> "Existing Directory" -> "Browse" -> "rpharma2019/reproduce/renv-test" -> "Choose" -> "Create Project"
 
 1. Run `renv::init()` - what is added to the project? What is the result of
 `renv::status()`?
 
+2. Commit the lock file into Git by running the following commands in the *RStudio Terminal* ("Terminal"->"New Terminal"):
 
-2. Simulate a package upgrade. Run:
 ```
-options(repos = c(CRAN = "https://cluster.rstudiopm.com/cran/latest"))  
-install.packages("glue")
+cd ~/rpharma2019/reproduce/renv-test/
+git config user.email "test@test.com"
+git config user.name "test"
+git add renv.lock
+git commit -m 'happy state'
+```
+
+
+2. Simulate a package upgrade. Start by sourcing our script `test.R`, what version of glue is in use? Run:
+
+```
+remotes::install_github("tidyverse/glue")
 ```
 
 3. What is the new result of `renv::status()`? Run `renv::snapshot()` and `renv::status()`. What happened?
