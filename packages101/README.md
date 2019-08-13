@@ -20,6 +20,11 @@ Slides: https://docs.google.com/presentation/d/1b0N-26AZRZ9o5Z1hPNtxQ3TVj8TVTmWt
 
 ```
 hello <- function(name){ sprintf("Hello %s!", name)} 
+```
+
+3. Build the package by clicking "Build", "Install and Restart" (upper-right hand RStudio pane). Then run the following in the console:
+
+```
 library(helloworld)
 hello("Sean")
 ```
@@ -28,17 +33,21 @@ hello("Sean")
 
 1. Run `.libPaths()`
 
-2. Can you find the installed version of the `helloworld` package?
+2. Can you find the installed version of the `helloworld` package? 
 
 3. How does it compare to the source version?
 
-4. What else is in your library?
+4. What else is in your library? Hint:
+
+```
+fs::dir_ls(.libPaths())
+```
 
 ## Exercise 3
 
-1. In our package project, run `user::use_package("glue")`
+1. In our package project, run `usethis::use_package("glue")`
 
-2. Change our function to: 
+2. Change our function in `R/hello.R` to: 
 
 ```
 hello <- function(name){glue::glue("Hello, {name}!")}
