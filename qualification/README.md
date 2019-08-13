@@ -16,9 +16,16 @@ https://docs.google.com/presentation/d/1EtTdXFHcvaDj_BUBioYYNk6-JAV_tbTU-5E8_bld
 
 ```
 test_that("hello works", {
-  expect_equal(hello("world"), "Hello, world!")
+  expect_equal(hello("world"), "Hello, World!")
 })
 ```
 
-4. Run test: `test_file("tests/testthat/test-hello.R")`
+4. Run test: 
+
+```
+library(helloworld)
+test_file("tests/testthat/test-hello.R")
+```
+
+Why is the test failing? Propose a fix either to your expectation or your code!
 
