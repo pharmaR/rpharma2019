@@ -1,13 +1,14 @@
 Parameter,Value
 Title,A Grammar of Data Manipulation
-Description,"A fast, consistent tool for working with data frame like objects, both in
-memory and out of memory."
+Description,"A fast, consistent tool for working with data frame like objects,
+both in memory and out of memory."
 License,MIT + file LICENSE
 URL,"http://dplyr.tidyverse.org, https://github.com/tidyverse/dplyr"
-Author,"Hadley Wickham [aut, cre] (<https://orcid.org/0000-0003-4757-117X>), Romain
-FranÃ§ois [aut] (<https://orcid.org/0000-0002-2444-4226>), Lionel Henry [aut],
-Kirill MÃ¼ller [aut] (<https://orcid.org/0000-0002-1416-3412>), RStudio [cph,
-fnd]"
+Author,"Hadley Wickham [aut, cre] (<https://orcid.org/0000-0003-4757-117X>),
+Romain FranÃ§ois [aut] (<https://orcid.org/0000-0002-2444-4226>),
+Lionel Henry [aut],
+Kirill MÃ¼ller [aut] (<https://orcid.org/0000-0002-1416-3412>),
+RStudio [cph, fnd]"
 Maintainer,Hadley Wickham <hadley@rstudio.com>
 Date/Publication,2019-02-15 15:30:53 UTC
 Repository,CRAN
