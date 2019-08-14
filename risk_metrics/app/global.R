@@ -1,6 +1,9 @@
 # global functionality and module loading
 # v0.1, 2019-07-17
 
+# Package set-up -one time only
+#source("scripts/process_dcf.R")
+
 library(shiny)
 library(shinydashboard)
 library(shinythemes)
