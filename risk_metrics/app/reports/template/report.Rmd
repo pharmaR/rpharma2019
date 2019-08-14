@@ -1,6 +1,8 @@
 ---
-title: "`r paste('Package:', params$pkg_name)`"
-output: html_document
+title: "`r paste('Package Validation Report')`"
+output:
+  html_document:
+    css: styles.css
 params:
   pkg_name: NA
   pkg_version: NA
@@ -9,22 +11,22 @@ params:
   pkg_testing: NA
   pkg_conclusion: NA
   accept: FALSE
+  pkg_accept: FALSE
 ---
 
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+# `r params$pkg_name` {.package-header}
 
-## Version: `r params$pkg_version`
+## Version:
+ `r params$pkg_version`
 
-## Decision: `r ifelse(params$accept, "Accept", "Reject")`
+## Decision: {.`r ifelse(params$accept, "accept", "reject")`}
+`r ifelse(params$accept, "Accept", "Reject")`
 
-# Conclusion
-
-`r params$pkg_conclusion`
-
-# Details
+## Details
 
 ```{r eval=FALSE, echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -85,6 +87,6 @@ metric_labels %>%
 
 `r params$pkg_testing`
 
-# Conclusion
+## Conclusion
 
 `r params$pkg_conclusion`
