@@ -3,9 +3,9 @@
 #' Process DCF files to extract useful information for display purposes
 #' @param pkg Name of an installed R package
 process_dcf <- function(pkg){
-
+  
   # Read DCF and combine
-  dcf <- read.dcf(file = file.path("data/DCF", pkg))
+  dcf <- read.dcf(file = system.file(package = pkg, "DESCRIPTION"))
   dcf_tib <- as_tibble(dcf) %>%
     gather(key = Parameter, value = Value)
   dcf_tib %>%
@@ -23,7 +23,7 @@ create_info_csvs <- function(pkg){
   keep_var_tib <- as_tibble(keep_var_mat)
   
   # Read DCF and combine
-  dcf <- read.dcf(file = file.path("data/DCF", pkg))
+  dcf <- read.dcf(file = system.file(package = pkg, "DESCRIPTION"))
   dcf_tib <- as_tibble(dcf) 
   keep_var_tib %>%
     bind_rows(dcf_tib) %>%
