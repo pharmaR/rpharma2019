@@ -1,0 +1,59 @@
+div #header {
+  background-color: #246ABF;
+  text-align: center;
+  padding: 10px;
+  color: white;
+}
+
+h1.title{
+  font-size: 30px;
+  
+}
+
+/* defining the style of the heading of the package eg. "haven" */
+.package-header h1{
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 0px;
+  background-color: #444;
+  padding-bottom: 10px;
+  font-size: 28px;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, p {
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 300;
+}
+
+h2 {
+  font-size: 22px;
+}
+
+.reject p{
+  color: #9d0700;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+p{
+  font-size: 16px;
+}
+
+th{
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #e0ecf9;
+  border: none;
+}
