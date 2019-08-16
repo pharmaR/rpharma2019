@@ -80,6 +80,15 @@ choosePackage <- function(input, output, session) {
     pull(pkg_info(), on_cran)
   })
   #TODO Add others
+  months_pkg <- reactive({
+    pull(pkg_info(), months_package)
+  })
+  months_version <- reactive({
+    pull(pkg_info(), months_version)
+  })
+  n_reverse_depends <- reactive({
+    pull(pkg_info(), n_reverse_depends)
+  })
   # Community report display
   comm_table <- reactive({
     metric_labels %>%
@@ -90,6 +99,9 @@ choosePackage <- function(input, output, session) {
   })
   output$comm_table_out <- renderTable({
     comm_table() 
+  })
+  n_downloads <-  reactive({
+    pull(pkg_info(), n_download)
   })
   
   # Testing
@@ -155,6 +167,25 @@ choosePackage <- function(input, output, session) {
   # User input
   conc_community_text <- callModule(addComments, "conc_community", pkg = pkg_name, heading = "Community Summary")
   output$conc_community_text <- renderText(conc_community_text()[[pkg_name()]])
+  # Maturity
+  output$maturity_pkg <- renderGauge({
+    gauge(months_pkg(), min = 0, max = 12*22, gaugeSectors(
+      success = c(13, 12*22), warning = c(7, 12), danger = c(0, 6)
+    ))
+  })
+  output$maturity_version <- renderGauge({
+    gauge(months_version(), min = 0, max = 24, gaugeSectors(
+      success = c(6, 24), warning = c(3, 5), danger = c(0, 2)
+    ))
+  })
+  output$reverse_depends <- renderGauge({
+    gauge(n_reverse_depends(), min = 0, max = 200, gaugeSectors(
+      success = c(10, 200), warning = c(2, 9), danger = c(0, 1)
+    ))
+  })
+  output$n_downloads <- renderPlot({
+    download_plot(n_downloads(), input$packagesInput)
+  })
   
   # Testing
   callModule(infoyesno, "tests", label = "Formal testing", has = has_tests)

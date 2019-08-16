@@ -83,11 +83,31 @@ choosePackageUI <- function(id) {
                              ),
                              br(),
                              # fluidRow(
-                               # box(
-                                 # width = 12,
-                                 addCommentsUI(ns("conc_community"))
-                               # )
-                               
+                             # box(
+                             # width = 12,
+                             box(
+                               title = "Package Maturity (months)",
+                               width = 4, height = "200px",
+                               gaugeOutput(ns("maturity_pkg"))
+                             ),
+                             box(
+                               title = "Version Maturity (months)",
+                               width = 4, height = "200px",
+                               gaugeOutput(ns("maturity_version"))
+                             ),
+                             box(
+                               title = "Number of Reverse Dependencies",
+                               width = 4, height = "200px",
+                               gaugeOutput(ns("reverse_depends"))
+                             ),
+                             box(
+                               title = "Comparison of Number of Downloads vs R Packages on CRAN",
+                               width = 6, 
+                               plotOutput(ns("n_downloads"), height = 200)
+                             ),
+                             addCommentsUI(ns("conc_community"))
+                             # )
+
                              # )
                     ),
                     tabPanel("Testing",

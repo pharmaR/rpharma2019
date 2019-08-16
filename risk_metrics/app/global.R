@@ -9,6 +9,7 @@ library(shinydashboard)
 library(shinythemes)
 library(shinyWidgets)
 library(flexdashboard)
+library(DT)
 library(readr)
 library(dplyr)
 library(tidyr)
@@ -80,3 +81,30 @@ code_vs_pop_plot <- function(value, pkg_name){
   
 }
 
+
+#' Number of downloads
+#' 
+#' Plot of the relative number of lines of code against distribution from CRAN
+#' @param value Number of lines of code in package
+#' @param pkg_name Package name
+#' @import ggplot2
+#' @example download_plot(1000, "haven")
+download_plot <- function(value, pkg_name){
+  # The standard number of lines of code - as obtained by sampling CRAN
+  # TODO - sample CRAN
+  x_range <- seq(0, 1, .01)
+  std_lines_dist <- dbeta(x_range, 1.7,4)
+  x_range <- 40000*x_range
+  
+  ggplot() +
+    geom_line(aes(x=x_range, y=std_lines_dist)) +
+    geom_vline(xintercept = value) +
+    geom_label(label=pkg_name, 
+               aes(x = value, y = max(std_lines_dist)),
+               vjust = 1, hjust = 0, nudge_x = 0.01*max(x_range)) +
+    xlab("Number of Downloads") +
+    ylab("Density") +
+    theme(axis.text.y = element_blank(),
+          axis.ticks.y = element_blank())
+  
+}
