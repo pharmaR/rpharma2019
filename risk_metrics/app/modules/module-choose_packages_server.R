@@ -19,6 +19,11 @@ choosePackage <- function(input, output, session) {
   })
   output$desc_info <- renderTable(desc_info())
   
+  desc_desc <- reactive({
+    descriptions[pkg_name()]
+  })
+  output$desc_desc <- renderText(desc_desc())
+  
   # Package info
   pkg_info <- reactive({
     metrics %>%

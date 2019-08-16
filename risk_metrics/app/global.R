@@ -23,8 +23,13 @@ library(ggplot2); theme_set(theme_bw(base_size = 12))
 packages <- c("haven", "dplyr", "broom", "lme4", "RBesT", "foreach")
 
 # DESCRIPTIONs
-dcfs <- purrr::map(packages, ~ read_csv(file.path("data", paste0(., ".csv"))))
+dcf_in <- purrr::map(packages, ~ read_csv(file.path("data", paste0(., ".csv"))))
+
+dcfs <- purrr::map(dcf_in, ~ filter(., Parameter %in% c("Author", "Maintainer")))
 names(dcfs) <- packages
+
+descriptions <- purrr::map_chr(dcf_in, ~ filter(., Parameter %in% c("Description")) %>% pull("Value"))
+names(descriptions) <- packages
 
 # Modules
 source("modules/module-choose_packages.R")

@@ -22,6 +22,7 @@ choosePackageUI <- function(id) {
                     tabPanel("Report Preview",
                              h1(textOutput(ns("packageName"))),
                              h2(textOutput(ns("packageVersion"))),
+                             textOutput(ns("desc_desc")),
                              h2(textOutput(ns("decision_out"))),
                              tableOutput(ns("desc_info")),
                              h2("Overall Conclusion"),
@@ -60,21 +61,15 @@ choosePackageUI <- function(id) {
                                )
                              ),
                              fluidRow(
-                               
                                box(
                                  title = "Comparison of Number of lines vs R Packages on CRAN",
                                  width = 6, 
                                  plotOutput(ns("code_lines"), height = 200)
                                )
-                               
                              ),
                              br(),
-                             # fluidRow(
-                             #   box(
-                             #     width = 12,
-                                 addCommentsUI(ns("conc_maint"))
-                             #   )   
-                             # )
+                             addCommentsUI(ns("conc_maint"))
+                             
                              
                     ),
                     tabPanel("Community Usage",
@@ -82,9 +77,6 @@ choosePackageUI <- function(id) {
                                tagList(infoyesnoUI(ns("cran")))
                              ),
                              br(),
-                             # fluidRow(
-                             # box(
-                             # width = 12,
                              box(
                                title = "Package Maturity (months)",
                                width = 4, height = "200px",
@@ -106,9 +98,6 @@ choosePackageUI <- function(id) {
                                plotOutput(ns("n_downloads"), height = 200)
                              ),
                              addCommentsUI(ns("conc_community"))
-                             # )
-
-                             # )
                     ),
                     tabPanel("Testing",
                              fluidRow(
@@ -120,12 +109,7 @@ choosePackageUI <- function(id) {
                                )
                              ),
                              br(),
-                             # fluidRow(
-                               # box(
-                                 # width = 12,
-                                 addCommentsUI(ns("conc_testing"))
-                               # )
-                             # )
+                             addCommentsUI(ns("conc_testing"))
                     )
              )
       )

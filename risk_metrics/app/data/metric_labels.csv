@@ -11,3 +11,7 @@ n_author_pkg ,Number of other packages by maintainer on CRAN,maintenance
 on_cran ,Is the package on CRAN?,community
 has_tests ,Does the package implement a standard unit test framework?,testing
 test_coverage,What is the test coverage?,testing
+months_package,Maturity of Package (months),community
+months_version,Maturity of Version (months),community
+n_reverse_depends,Number of reverse depends and imports,community
+n_download,Number of Downloads,community
