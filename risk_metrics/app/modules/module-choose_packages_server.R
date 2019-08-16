@@ -211,8 +211,11 @@ choosePackage <- function(input, output, session) {
       # Copy the report file to a temporary directory before processing it, in
       # case we don't have write permissions to the current working dir (which
       # can happen when deployed).
-      tempReport <- file.path(tempdir(), "report.Rmd")
+      temp_dir <- tempdir()
+      tempReport <- file.path(temp_dir, "report.Rmd")
+      tempCSS <- file.path(temp_dir, "styles.css")
       file.copy("reports/template/report.Rmd", tempReport, overwrite = TRUE)
+      file.copy("reports/template/styles.css", tempCSS, overwrite = TRUE)
       
       # Set up parameters to pass to Rmd document
       params <- list(pkg_name = pkg_name(),
