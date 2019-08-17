@@ -8,9 +8,9 @@ choosePackageUI <- function(id) {
                              label = "Choose a Package",
                              choices = packages),
                  decisionUI(ns("accept_or_reject")),
-                 box(width=12,
-                     addCommentsUI(ns("conc"))
-                 ),
+                 #box(width=12,
+                     addCommentsUI(ns("conc")),
+                 #),
                  br(),
                  downloadButton(ns("report"),
                                 "Generate Report")
