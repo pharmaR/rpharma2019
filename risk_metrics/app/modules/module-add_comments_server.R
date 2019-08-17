@@ -1,5 +1,26 @@
-addComments <- function(input, output, session, pkg, heading) {
-  
+addComments <- function(input, output, session, pkg, heading, horizontal = TRUE) {
+
+  # UI
+  output$comment_ui <- renderUI({
+    ns <- session$ns
+    tagList(
+      # Inputs
+      column(width=ifelse(horizontal, 6, 12),
+             h4(textOutput(ns("heading"))),
+             textAreaInput(ns("user_text"), 
+                           label = "Enter Text", 
+                           placeholder = "Please enter some text.",
+                           width = "100%",
+                           height = "160px"),
+             actionButton(ns("submit"), label = "Submit")
+      ),
+      column(width=ifelse(horizontal, 6, 12),
+             h4("Report Preview"),
+             textOutput(ns("text"))
+      ) 
+    )
+  })
+    
   # Only update when user says to
   observeEvent(input$submit,
                {
@@ -15,26 +36,6 @@ addComments <- function(input, output, session, pkg, heading) {
                    value= ifelse(is.null(text_reactive[[pkg()]]), "", text_reactive[[pkg()]]),
                    placeholder = "Please enter some text.")
                })
-  
-  output$comment_ui <- renderUI({
-    ns <- session$ns
-    tagList(
-      # Inputs
-      column(width=6,
-             h4(textOutput(ns("heading"))),
-             textAreaInput(ns("user_text"), 
-                           label = "Enter Text", 
-                           placeholder = "Please enter some text.",
-                           width = "100%",
-                           height = "200px"),
-             actionButton(ns("submit"), label = "Submit")
-      ),
-      column(width=6,
-             h4("Report Preview"),
-             textOutput(ns("text"))
-      ) 
-    )
-  })
   
   text_reactive <- reactiveValues()
   

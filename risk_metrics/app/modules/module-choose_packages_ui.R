@@ -2,21 +2,19 @@ choosePackageUI <- function(id) {
   ns <- NS(id)
   fluidPage(
     fluidRow(
-      column(width = 4,
+      column(width = 3,
              box(width = 12,
                  selectInput(ns("packagesInput"), 
                              label = "Choose a Package",
                              choices = packages),
                  decisionUI(ns("accept_or_reject")),
-                 #box(width=12,
-                     addCommentsUI(ns("conc")),
-                 #),
+                 addCommentsUI(ns("conc")),
                  br(),
                  downloadButton(ns("report"),
                                 "Generate Report")
              )
       ),
-      column(width = 8,
+      column(width = 9,
              tabBox(width=12,
                     title = "Risk Assessment",
                     tabPanel("Report Preview",

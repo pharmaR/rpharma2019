@@ -133,7 +133,11 @@ choosePackage <- function(input, output, session) {
   
   # Overall
   # User Input
-  conc_text <- callModule(addComments, "conc", pkg = pkg_name, heading = "Package Conclusion")
+  conc_text <- callModule(addComments, 
+                          "conc", 
+                          pkg = pkg_name, 
+                          heading = "Package Conclusion",
+                          horizontal = FALSE)
   output$conc_text <- renderText(conc_text()[[pkg_name()]])
   
   pkg_dec <- callModule(decision, "accept_or_reject", pkg = pkg_name)
