@@ -1,5 +1,16 @@
 Parameter,Value
+Package,RBesT
 Title,R Bayesian Evidence Synthesis Tools
+Version,1.4-0
+Authors@R,"c(person(""Novartis"", ""Pharma AG"", role = ""cph"")
+,person(""Sebastian"", ""Weber"", email=""sebastian.weber@novartis.com"", role=c(""aut"", ""cre""))
+,person(""Beat"", ""Neuenschwander"", email=""beat.neuenschwander@novartis.com"", role=""ctb"")
+,person(""Heinz"", ""Schmidli"", email=""heinz.schmidli@novartis.com"", role=""ctb"")
+,person(""Baldur"", ""Magnusson"", email=""baldur.magnusson@novartis.com"", role=""ctb"")
+,person(""Yue"", ""Li"", email=""yue-1.li@novartis.com"", role=""ctb"")
+,person(""Satrajit"", ""Roychoudhury"", email=""satrajit.roychoudhury@novartis.com"", role=""ctb"")
+,person(""Trustees of"", ""Columbia University"", role=""cph"", comment=""src/init.cpp, tools/make_cc.R, R/stanmodels.R, src/Makevars, src/Makevars.win"")
+)"
 Description,"Tool-set to support Bayesian evidence synthesis.  This
 includes meta-analysis, (robust) prior derivation from historical
 data, operating characteristics and analysis (1 and 2 sample
@@ -8,6 +19,21 @@ cases). Please refer to Neuenschwander et al. (2010)
 <doi:10.1111/biom.12242> for details on the methodology."
 License,GPL (>= 3) | file LICENSE
 URL,NA
+BugReports,NA
+Depends,"R (>= 3.4.0), Rcpp (>= 0.12.0), methods"
+Imports,"assertthat, mvtnorm, Formula, checkmate, rstan (>= 2.18.1),
+bayesplot (>= 1.4.0), ggplot2, dplyr, stats, utils"
+Suggests,"rmarkdown, knitr, testthat (>= 2.0.0), foreach, tidyverse,
+purrr, rstanarm (>= 2.17.2), scales, tools, broom, tidyr"
+LinkingTo,"StanHeaders (>= 2.18.0), rstan (>= 2.18.1), BH (>= 1.66.0),
+Rcpp (>= 0.12.0), RcppEigen (>= 0.3.3.3.0)"
+VignetteBuilder,knitr
+Encoding,UTF-8
+LazyData,true
+RoxygenNote,6.1.1
+SystemRequirements,"GNU make, pandoc (>= 1.12.3), pandoc-citeproc"
+NeedsCompilation,yes
+Packaged,2019-06-27 08:22:45 UTC;
 Author,"Novartis Pharma AG [cph],
 Sebastian Weber [aut, cre],
 Beat Neuenschwander [ctb],
@@ -18,7 +44,11 @@ Satrajit Roychoudhury [ctb],
 Trustees of Columbia University [cph] (src/init.cpp, tools/make_cc.R,
 R/stanmodels.R, src/Makevars, src/Makevars.win)"
 Maintainer,Sebastian Weber <sebastian.weber@novartis.com>
-Date/Publication,2019-06-27 09:00:03 UTC
 Repository,CRAN
-BugReports,NA
-SystemRequirements,"GNU make, pandoc (>= 1.12.3), pandoc-citeproc"
+Date/Publication,2019-06-27 09:00:03 UTC
+Built,R 3.5.3; x86_64-w64-mingw32; 2019-07-31 21:07:52 UTC; windows
+Archs,"i386, x64"
+Type,Package
+Contact,NA
+Date,2019-06-27
+Enhances,NA

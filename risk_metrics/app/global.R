@@ -50,7 +50,10 @@ source("modules/module-decision_server.R")
 # source("modules/module-show_metrics_table_ui.R")
 
 # Temporary vars until linked to packages
-metrics <- read_csv("data/metrics.csv")
+metrics_manual <- read_csv("data/metrics_manual.csv")
+metrics_derived <- read_csv("data/metrics_derived.csv")
+metrics <- metrics_manual %>%
+  full_join(metrics_derived, by = c("package", "version"))
 
 # Display
 metrics_display <- metrics %>%

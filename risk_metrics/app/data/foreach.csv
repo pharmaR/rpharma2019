@@ -1,5 +1,10 @@
 Parameter,Value
+Package,foreach
 Title,Provides Foreach Looping Construct
+Version,1.4.7
+Authors@R,"c(person(""Hong"", ""Ooi"", role=""cre"", email=""hongooi@microsoft.com""),
+person(""Microsoft"", role=c(""aut"", ""cph"")),
+person(""Steve"", ""Weston"", role=""aut""))"
 Description,"Support for the foreach looping construct.  Foreach is an
 idiom that allows for iterating over elements in a collection,
 without the use of an explicit loop counter.  This package in
@@ -10,11 +15,27 @@ of a function.  Using foreach without side effects also
 facilitates executing the loop in parallel."
 License,Apache License (== 2.0)
 URL,NA
+BugReports,NA
+Depends,R (>= 2.5.0)
+Imports,"codetools, utils, iterators"
+Suggests,randomForest
+LinkingTo,NA
+VignetteBuilder,NA
+Encoding,NA
+LazyData,NA
+RoxygenNote,NA
+SystemRequirements,NA
+NeedsCompilation,no
+Packaged,2019-07-16 21:07:01 UTC; richcala
 Author,"Hong Ooi [cre],
 Microsoft [aut, cph],
 Steve Weston [aut]"
 Maintainer,Hong Ooi <hongooi@microsoft.com>
-Date/Publication,2019-07-27 23:00:35 UTC
 Repository,CRAN
-BugReports,NA
-SystemRequirements,NA
+Date/Publication,2019-07-27 23:00:35 UTC
+Built,R 3.5.3; ; 2019-07-31 15:50:24 UTC; windows
+Archs,NA
+Type,Package
+Contact,NA
+Date,NA
+Enhances,"compiler, doMC, RUnit, doParallel"
