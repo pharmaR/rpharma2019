@@ -58,13 +58,11 @@ choosePackageUI <- function(id) {
                                  title = "Number of CRAN Packages by Maintainer",
                                  width = 4, height = "200px",
                                  gaugeOutput(ns("author_pks"))
-                               )
-                             ),
-                             fluidRow(
+                               ),
                                box(
-                                 title = "Comparison of Number of lines vs R Packages on CRAN",
-                                 width = 6, 
-                                 plotOutput(ns("code_lines"), height = 200)
+                                 title = "Number of lines vs R Packages on CRAN",
+                                 width = 4, 
+                                 plotOutput(ns("code_lines"), height = 160)
                                )
                              ),
                              br(),
@@ -74,29 +72,31 @@ choosePackageUI <- function(id) {
                     ),
                     tabPanel("Community Usage",
                              fluidRow(
-                               tagList(infoyesnoUI(ns("cran")))
+                               tagList(infoyesnoUI(ns("cran"))),
+                               box(
+                                 title = "Number of Downloads vs R Packages on CRAN",
+                                 width = 4, 
+                                 plotOutput(ns("n_downloads"), height = 160)
+                               )
+                             ),
+                             fluidRow(
+                               box(
+                                 title = "Package Maturity (months)",
+                                 width = 4, height = "200px",
+                                 gaugeOutput(ns("maturity_pkg"))
+                               ),
+                               box(
+                                 title = "Version Maturity (months)",
+                                 width = 4, height = "200px",
+                                 gaugeOutput(ns("maturity_version"))
+                               ),
+                               box(
+                                 title = "Number of Reverse Dependencies",
+                                 width = 4, height = "200px",
+                                 gaugeOutput(ns("reverse_depends"))
+                               )
                              ),
                              br(),
-                             box(
-                               title = "Package Maturity (months)",
-                               width = 4, height = "200px",
-                               gaugeOutput(ns("maturity_pkg"))
-                             ),
-                             box(
-                               title = "Version Maturity (months)",
-                               width = 4, height = "200px",
-                               gaugeOutput(ns("maturity_version"))
-                             ),
-                             box(
-                               title = "Number of Reverse Dependencies",
-                               width = 4, height = "200px",
-                               gaugeOutput(ns("reverse_depends"))
-                             ),
-                             box(
-                               title = "Comparison of Number of Downloads vs R Packages on CRAN",
-                               width = 6, 
-                               plotOutput(ns("n_downloads"), height = 200)
-                             ),
                              addCommentsUI(ns("conc_community"))
                     ),
                     tabPanel("Testing",
