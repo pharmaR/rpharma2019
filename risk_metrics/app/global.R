@@ -52,7 +52,9 @@ source("modules/module-decision_server.R")
 
 # Temporary vars until linked to packages
 metrics_manual <- read_csv("data/metrics_manual.csv")
-metrics_derived <- read_csv("data/metrics_derived.csv")
+metrics_derived <- read_csv("data/metrics_derived.csv") %>%
+  # Fix version appearance issue
+  mutate(version = stringr::str_replace_all(version, "-", "."))
 metrics <- metrics_manual %>%
   full_join(metrics_derived, by = c("package", "version"))
 
