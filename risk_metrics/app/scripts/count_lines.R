@@ -23,9 +23,6 @@ n_lines_dir <- function(dir){
   n_lines
 }
 
-library(foreach)
-library(stringr)
-package_dir <- "../package_source"
-dir_packages <- list.files(package_dir, full.names = TRUE)
-counts <- map(dir_packages, n_lines_dir)
-names(counts) <- dir_packages
+
+
+

@@ -1,5 +1,5 @@
 param,extra
-has_vignette ,
+has_vignette ,vignette_names
 has_website ,URL
 has_news ,
 has_source_pub ,
