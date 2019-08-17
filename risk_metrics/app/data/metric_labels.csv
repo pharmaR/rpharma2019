@@ -7,7 +7,7 @@ has_bugtrack ,Formal bug tracking?,maintenance
 approved_license ,Company approved license?,maintenance
 n_releases ,Number of releases in past 18 months,maintenance
 n_lines ,Number of lines of R code,maintenance
-n_author_pkg ,Number of other packages by maintainer on CRAN,maintenance
+n_author_pkg ,Number of other packages by authors on CRAN,maintenance
 on_cran ,Is the package on CRAN?,community
 has_tests ,Does the package implement a standard unit test framework?,testing
 test_coverage,What is the test coverage?,testing

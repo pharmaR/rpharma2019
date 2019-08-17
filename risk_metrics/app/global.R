@@ -3,6 +3,7 @@
 
 # Package set-up -one time only
 #source("scripts/process_dcf.R")
+#source("scripts/get_info.R")
 
 library(shiny)
 library(shinydashboard)
@@ -61,8 +62,18 @@ metrics_display <- metrics %>%
    group_by(package, version) %>%
    gather(-package, -version, key = param, value = Metric)
 # Labels
-metric_labels <- read_csv("data/metric_labels.csv") %>%
+metric_labels_pre <- read_csv("data/metric_labels.csv") %>%
    full_join(metrics_display, by = "param")
+# Create table of additional information
+metric_extra <- read_csv("data/metric_extra.csv") %>%
+  filter(!is.na(extra)) %>%
+  left_join(metrics_display, by = c("extra"="param")) %>%
+  rename(`Additional Information` = Metric) %>%
+  select(package, version, param, `Additional Information`) 
+  
+metric_labels <- metric_labels_pre %>% 
+  left_join(metric_extra, by = c("package", "version", "param")) %>%
+  mutate(`Additional Information` = replace_na(`Additional Information`, "-")) 
 
 
 #' Relative lines of code

@@ -13,6 +13,7 @@ pkg_info <- do.call(bind_rows, dcf_pkg) %>%
 pkg_info_derived <- pkg_info %>%
   mutate(on_cran = ifelse(Repository == "CRAN", TRUE, FALSE),
          has_bugtrack = ifelse(!is.na(BugReports), TRUE, FALSE),
+         has_news = ifelse(!is.na(URL), TRUE, FALSE),
          date_pub_pkg = ymd_hms(`Date/Publication`),
          months_version = floor(as.numeric(difftime(today(), date_pub_pkg, "days")) %% 30))
 

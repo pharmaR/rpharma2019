@@ -1,0 +1,17 @@
+param,extra
+has_vignette ,
+has_website ,URL
+has_news ,
+has_source_pub ,
+has_bugtrack ,BugReports
+approved_license ,
+n_releases ,
+n_lines ,
+n_author_pkg ,Author
+on_cran ,Repository
+has_tests ,
+test_coverage,
+months_package,
+months_version,
+n_reverse_depends,
+n_download,

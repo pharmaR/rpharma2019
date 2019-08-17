@@ -74,7 +74,7 @@ choosePackage <- function(input, output, session) {
       dplyr::filter(category == "maintenance", 
                     package == pkg_name(),
                     version == pkg_version()) %>%
-      select(Parameter, Metric)
+      select(Parameter, Metric, `Additional Information`)
   })
   output$maint_table_out <- renderTable({
     maint_table() 
