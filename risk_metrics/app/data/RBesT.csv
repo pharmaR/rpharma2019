@@ -21,3 +21,4 @@ Maintainer,Sebastian Weber <sebastian.weber@novartis.com>
 Date/Publication,2019-06-27 09:00:03 UTC
 Repository,CRAN
 BugReports,NA
+SystemRequirements,"GNU make, pandoc (>= 1.12.3), pandoc-citeproc"

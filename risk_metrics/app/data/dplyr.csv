@@ -10,6 +10,7 @@ Lionel Henry [aut],
 Kirill MÃ¼ller [aut] (<https://orcid.org/0000-0002-1416-3412>),
 RStudio [cph, fnd]"
 Maintainer,Hadley Wickham <hadley@rstudio.com>
-Date/Publication,2019-02-15 15:30:53 UTC
+Date/Publication,2019-07-04 15:50:02 UTC
 Repository,CRAN
 BugReports,https://github.com/tidyverse/dplyr/issues
+SystemRequirements,NA

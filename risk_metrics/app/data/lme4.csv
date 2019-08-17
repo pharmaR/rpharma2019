@@ -22,3 +22,4 @@ Maintainer,Ben Bolker <bbolker+lme4@gmail.com>
 Date/Publication,2019-03-05 22:40:10 UTC
 Repository,CRAN
 BugReports,https://github.com/lme4/lme4/issues
+SystemRequirements,NA

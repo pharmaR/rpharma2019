@@ -25,7 +25,10 @@ packages <- c("haven", "dplyr", "broom", "lme4", "RBesT", "foreach")
 # DESCRIPTIONs
 dcf_in <- purrr::map(packages, ~ read_csv(file.path("data", paste0(., ".csv"))))
 
-dcfs <- purrr::map(dcf_in, ~ filter(., Parameter %in% c("Author", "Maintainer")))
+dcfs <- purrr::map(dcf_in, ~ 
+                     filter(., Parameter %in% c("Author", "Maintainer", "SystemRequirements")) %>%
+                     mutate(Value = replace_na(Value, "-"))
+                   )
 names(dcfs) <- packages
 
 descriptions <- purrr::map_chr(dcf_in, ~ filter(., Parameter %in% c("Description")) %>% pull("Value"))

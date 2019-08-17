@@ -13,3 +13,4 @@ Maintainer,Hadley Wickham <hadley@rstudio.com>
 Date/Publication,2019-07-04 14:50:03 UTC
 Repository,CRAN
 BugReports,https://github.com/tidyverse/haven/issues
+SystemRequirements,GNU make

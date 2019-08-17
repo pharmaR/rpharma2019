@@ -17,7 +17,7 @@ create_info_csvs <- function(pkg){
   # Define vars of interest
   keep_vars <- c("Title", "Description", "License", "URL", 
                  "Author", "Maintainer", "Date/Publication",
-                 "Repository", "BugReports")
+                 "Repository", "BugReports", "SystemRequirements")
   keep_var_mat <- matrix(nrow=0, ncol = length(keep_vars))
   colnames(keep_var_mat) <- keep_vars
   keep_var_tib <- as_tibble(keep_var_mat)

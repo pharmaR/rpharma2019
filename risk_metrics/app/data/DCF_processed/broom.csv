@@ -2,7 +2,7 @@ Parameter,Value
 Type,Package
 Package,broom
 Title,Convert Statistical Analysis Objects into Tidy Tibbles
-Version,0.5.1
+Version,0.5.2
 Authors@R,"c(person(given = ""David"",
 family = ""Robinson"",
 role = ""aut"",
@@ -146,7 +146,7 @@ VignetteBuilder,knitr
 LazyData,true
 RoxygenNote,6.1.1
 NeedsCompilation,no
-Packaged,2018-12-05 03:28:44 UTC; alex
+Packaged,2019-04-07 19:01:07 UTC; alex
 Author,"David Robinson [aut],
 Alex Hayes [aut, cre] (<https://orcid.org/0000-0002-4985-5160>),
 Matthieu Gomez [ctb],
@@ -178,5 +178,5 @@ Erle Holgersen [ctb],
 Karl Dunkle Werner [ctb]"
 Maintainer,Alex Hayes <alexpghayes@gmail.com>
 Repository,CRAN
-Date/Publication,2018-12-05 10:10:07 UTC
-Built,R 3.5.3; ; 2019-03-17 17:22:47 UTC; windows
+Date/Publication,2019-04-07 19:52:53 UTC
+Built,R 3.5.3; ; 2019-06-09 22:35:25 UTC; windows

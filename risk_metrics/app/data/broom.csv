@@ -42,6 +42,7 @@ Jorge Cimentada [ctb],
 Erle Holgersen [ctb],
 Karl Dunkle Werner [ctb]"
 Maintainer,Alex Hayes <alexpghayes@gmail.com>
-Date/Publication,2018-12-05 10:10:07 UTC
+Date/Publication,2019-04-07 19:52:53 UTC
 Repository,CRAN
 BugReports,http://github.com/tidyverse/broom/issues
+SystemRequirements,NA
