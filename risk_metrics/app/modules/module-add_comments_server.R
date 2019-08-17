@@ -5,7 +5,7 @@ addComments <- function(input, output, session, pkg, heading) {
                {
                  text_reactive[[pkg()]] <- input$user_text                 
                })
-
+  
   # Refresh input text when package changes
   observeEvent(pkg(),
                {
@@ -16,8 +16,26 @@ addComments <- function(input, output, session, pkg, heading) {
                    placeholder = "Please enter some text.")
                })
   
+  output$comment_ui <- renderUI({
+    ns <- session$ns
+    tagList(
+      # Inputs
+      column(width=6,
+             h4(textOutput(ns("heading"))),
+             textAreaInput(ns("user_text"), 
+                           label = "Enter Text", 
+                           placeholder = "Please enter some text.",
+                           width = "100%",
+                           height = "200px"),
+             actionButton(ns("submit"), label = "Submit")
+      ),
+      column(width=6,
+             h4("Report Preview"),
+             textOutput(ns("text"))
+      ) 
+    )
+  })
   
-
   text_reactive <- reactiveValues()
   
   # text output
