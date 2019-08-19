@@ -193,7 +193,9 @@ choosePackage <- function(input, output, session) {
     ))
   })
   output$n_downloads <- renderPlot({
-    download_plot(n_downloads(), input$packagesInput)
+    download_plot(n_downloads(), 
+                  input$packagesInput, 
+                  base_data=logs_sample_all)
   })
   
   # Testing

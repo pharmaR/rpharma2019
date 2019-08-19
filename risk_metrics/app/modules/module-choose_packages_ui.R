@@ -72,7 +72,7 @@ choosePackageUI <- function(id) {
                              fluidRow(
                                tagList(infoyesnoUI(ns("cran"))),
                                box(
-                                 title = "5 year Downloads vs R Packages on CRAN",
+                                 title = "5 year Downloads vs 500 Sample Packages on CRAN",
                                  width = 4, 
                                  plotOutput(ns("n_downloads"), height = 160)
                                )
