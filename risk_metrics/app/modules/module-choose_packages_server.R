@@ -228,7 +228,7 @@ choosePackage <- function(input, output, session) {
                      pkg_maint = conc_maint_text(),
                      pkg_community = conc_community_text(),
                      pkg_testing = conc_testing_text(),
-                     pkg_accept = "Reject")
+                     pkg_accept = pkg_dec())
       
       # Knit the document, passing in the `params` list, and eval it in a
       # child of the global environment (this isolates the code in the document
