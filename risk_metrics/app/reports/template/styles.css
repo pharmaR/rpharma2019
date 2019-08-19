@@ -24,7 +24,7 @@ h1.title{
 
 h1, h2, h3, h4, p {
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h2 {
@@ -33,23 +33,36 @@ h2 {
 
 .reject p{
   color: #9d0700;
-  font-weight: 400;
+  font-size: 18px;
+}
+
+.reject p:before{
+  content: "✘ ";
+}
+
+.approve p{
+  color: #055703;
+  font-size: 18px;
+}
+
+.approve p:before{
+  content: "✓ ";
 }
 
 h3 {
   font-size: 18px;
-  font-weight: 300;
 }
 
 h4 {
   font-size: 16px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 p{
   font-size: 16px;
 }
 
+/*Table formatting starts here*/
 th{
   font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
   font-weight: 500;
@@ -57,3 +70,13 @@ th{
   background-color: #e0ecf9;
   border: none;
 }
+
+tbody {
+  font-size: 16px;
+  font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+tr.even { /* formatting all even rows of tables*/
+  background-color: #eee;
+}
+/*Table formatting ends here*/
