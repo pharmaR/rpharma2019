@@ -118,7 +118,7 @@ download_plot <- function(value, pkg_name){
   # TODO - sample CRAN
   x_range <- seq(0, 1, .01)
   std_lines_dist <- dbeta(x_range, 1.7,4)
-  x_range <- 40000*x_range
+  x_range <- 6000000*x_range
   
   ggplot() +
     geom_line(aes(x=x_range, y=std_lines_dist)) +
