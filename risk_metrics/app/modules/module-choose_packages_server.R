@@ -163,8 +163,8 @@ choosePackage <- function(input, output, session) {
     ))
   })
   output$author_pks <- renderGauge({
-    gauge(n_author_pkg(), min = 0, max = 30, gaugeSectors(
-      success = c(6, 30), warning = c(2, 5), danger = c(0, 1)
+    gauge(n_author_pkg(), min = 0, max = 200, gaugeSectors(
+      success = c(50, 200), warning = c(10, 49), danger = c(0, 9)
     ))
   })
   # User input
