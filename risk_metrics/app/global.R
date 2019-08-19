@@ -115,9 +115,6 @@ code_vs_pop_plot <- function(value, pkg_name){
 #' @example download_plot(1000, "haven", base_data = logs_sample_all)
 download_plot <- function(value, pkg_name, base_data = NULL){
   # The standard number of lines of code - as obtained by sampling CRAN
-  std_lines_dist <- dbeta(x_range, 1.7,4)
-  base_data$downloads
-  x_range <- 6000000*x_range
   
   ggplot() +
     #geom_line(aes(x=x_range, y=std_lines_dist)) +
@@ -125,7 +122,7 @@ download_plot <- function(value, pkg_name, base_data = NULL){
     geom_vline(xintercept = value) +
     geom_label(label=pkg_name,
                aes(x = value, y = max(density(base_data$downloads)$y)),
-               vjust = 1, hjust = 0, nudge_x = 0.01*max(x_range)) +
+               vjust = 1, hjust = 0, nudge_x = 0.01*max(base_data$downloads)) +
     xlab("Number of Downloads") +
     ylab("Density") +
     theme(axis.text.y = element_blank(),
