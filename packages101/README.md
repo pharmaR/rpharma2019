@@ -7,16 +7,12 @@ will introduce you to:
 2. The way R packages are distributed through a *repository*
 3. The organization of installed packages in a *library*
 
-*TODO: Replace link to slides with PDF copy*
-
-Slides: https://docs.google.com/presentation/d/1b0N-26AZRZ9o5Z1hPNtxQ3TVj8TVTmWtbunpRzwg1F0/edit?usp=sharing
-
 ## Exercise 1
 
 1. Run `usethis::create_package("~/helloworld")`. What does the skeleton of the package look like?
 
 
-2. Run `usethis::use_R("hello")` and then copy this:
+2. Run `usethis::use_r("hello")` and then copy this:
 
 ```
 hello <- function(name){ sprintf("Hello %s!", name)} 
