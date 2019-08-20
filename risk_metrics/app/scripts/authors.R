@@ -61,9 +61,9 @@ author_counts <- foreach(i = short_list) %do% {
   sapply(i, count_string)
 }
 
-sapply(short_list[[1]], count_string) %>% sum
-sapply(short_list[[2]], count_string) %>% sum
-sapply(short_list[[3]], count_string) %>% sum
-sapply(short_list[[4]], count_string) %>% sum
-sapply(short_list[[5]], count_string) %>% sum
-sapply(short_list[[6]], count_string) %>% sum
+names(author_counts) <- authors  %>%
+  filter(Package %in% packages) %>% 
+  pull(Package)
+
+author_counts %>%
+  map_dbl(sum)
