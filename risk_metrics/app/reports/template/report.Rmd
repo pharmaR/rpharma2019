@@ -23,8 +23,8 @@ knitr::opts_chunk$set(echo = FALSE)
 ## Version:
  `r params$pkg_version`
 
-## Decision: {.`r ifelse(params$accept, "accept", "reject")`}
-`r ifelse(params$accept, "Accept", "Reject")`
+## Decision: {.`r ifelse(params$pkg_accept, "accept", "reject")`}
+`r ifelse(params$pkg_accept, "Accept", "Reject")`
 
 ## Details
 
